@@ -1,5 +1,5 @@
 //
-//  SecondViewController.swift
+//  AddViewController.swift
 //  Happy
 //
 //  Created by Ben Herzberg on 2/17/18.
@@ -8,8 +8,11 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
-
+class AddViewController : UIViewController {
+    @IBAction func cancelButtonPressed(_ sender: UIBarButtonItem) {
+    self.dismiss(animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
