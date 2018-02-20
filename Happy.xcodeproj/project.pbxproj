@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E74E686A203C8F97002EB74E /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74E6869203C8F97002EB74E /* TestViewController.swift */; };
+		E74E6870203C9626002EB74E /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74E686F203C9626002EB74E /* SettingsTableViewController.swift */; };
 		E7965DB32038CF260056FC8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7965DB22038CF260056FC8E /* AppDelegate.swift */; };
 		E7965DB52038CF260056FC8E /* JournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7965DB42038CF260056FC8E /* JournalViewController.swift */; };
 		E7965DB72038CF260056FC8E /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7965DB62038CF260056FC8E /* AddViewController.swift */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		E74E6869203C8F97002EB74E /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		E74E686F203C9626002EB74E /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		E7965DAF2038CF260056FC8E /* Happy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Happy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7965DB22038CF260056FC8E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7965DB42038CF260056FC8E /* JournalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 		E7965DCC2038D48F0056FC8E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				E74E686F203C9626002EB74E /* SettingsTableViewController.swift */,
 				E7965DB62038CF260056FC8E /* AddViewController.swift */,
 				E7965DB22038CF260056FC8E /* AppDelegate.swift */,
 				E7965DC62038D2F20056FC8E /* OverviewViewController.swift */,
@@ -178,6 +181,7 @@
 				E7965DC92038D33E0056FC8E /* SettingsViewController.swift in Sources */,
 				E74E686A203C8F97002EB74E /* TestViewController.swift in Sources */,
 				E7965DB52038CF260056FC8E /* JournalViewController.swift in Sources */,
+				E74E6870203C9626002EB74E /* SettingsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
