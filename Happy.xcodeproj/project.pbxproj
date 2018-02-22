@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E74E686A203C8F97002EB74E /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74E6869203C8F97002EB74E /* TestViewController.swift */; };
 		E74E6870203C9626002EB74E /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74E686F203C9626002EB74E /* SettingsTableViewController.swift */; };
+		E74E6878203E0C1C002EB74E /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74E6877203E0C1C002EB74E /* Day.swift */; };
+		E74E687A203E98F4002EB74E /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74E6879203E98F3002EB74E /* Category.swift */; };
 		E7965DB32038CF260056FC8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7965DB22038CF260056FC8E /* AppDelegate.swift */; };
 		E7965DB52038CF260056FC8E /* JournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7965DB42038CF260056FC8E /* JournalViewController.swift */; };
-		E7965DB72038CF260056FC8E /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7965DB62038CF260056FC8E /* AddViewController.swift */; };
+		E7965DB72038CF260056FC8E /* AddNewDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7965DB62038CF260056FC8E /* AddNewDayViewController.swift */; };
 		E7965DBA2038CF260056FC8E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7965DB82038CF260056FC8E /* Main.storyboard */; };
 		E7965DBC2038CF260056FC8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7965DBB2038CF260056FC8E /* Assets.xcassets */; };
 		E7965DBF2038CF260056FC8E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7965DBD2038CF260056FC8E /* LaunchScreen.storyboard */; };
@@ -20,12 +21,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E74E6869203C8F97002EB74E /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		E74E686F203C9626002EB74E /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		E74E6877203E0C1C002EB74E /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
+		E74E6879203E98F3002EB74E /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		E7965DAF2038CF260056FC8E /* Happy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Happy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7965DB22038CF260056FC8E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7965DB42038CF260056FC8E /* JournalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalViewController.swift; sourceTree = "<group>"; };
-		E7965DB62038CF260056FC8E /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
+		E7965DB62038CF260056FC8E /* AddNewDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewDayViewController.swift; sourceTree = "<group>"; };
 		E7965DB92038CF260056FC8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E7965DBB2038CF260056FC8E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E7965DBE2038CF260056FC8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -76,6 +78,8 @@
 		E7965DCA2038D4820056FC8E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E74E6877203E0C1C002EB74E /* Day.swift */,
+				E74E6879203E98F3002EB74E /* Category.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -92,13 +96,12 @@
 		E7965DCC2038D48F0056FC8E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				E7965DB62038CF260056FC8E /* AddNewDayViewController.swift */,
 				E74E686F203C9626002EB74E /* SettingsTableViewController.swift */,
-				E7965DB62038CF260056FC8E /* AddViewController.swift */,
-				E7965DB22038CF260056FC8E /* AppDelegate.swift */,
 				E7965DC62038D2F20056FC8E /* OverviewViewController.swift */,
 				E7965DB42038CF260056FC8E /* JournalViewController.swift */,
 				E7965DC82038D33E0056FC8E /* SettingsViewController.swift */,
-				E74E6869203C8F97002EB74E /* TestViewController.swift */,
+				E7965DB22038CF260056FC8E /* AppDelegate.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -175,11 +178,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7965DB72038CF260056FC8E /* AddViewController.swift in Sources */,
+				E7965DB72038CF260056FC8E /* AddNewDayViewController.swift in Sources */,
+				E74E687A203E98F4002EB74E /* Category.swift in Sources */,
 				E7965DC72038D2F20056FC8E /* OverviewViewController.swift in Sources */,
 				E7965DB32038CF260056FC8E /* AppDelegate.swift in Sources */,
 				E7965DC92038D33E0056FC8E /* SettingsViewController.swift in Sources */,
-				E74E686A203C8F97002EB74E /* TestViewController.swift in Sources */,
+				E74E6878203E0C1C002EB74E /* Day.swift in Sources */,
 				E7965DB52038CF260056FC8E /* JournalViewController.swift in Sources */,
 				E74E6870203C9626002EB74E /* SettingsTableViewController.swift in Sources */,
 			);
