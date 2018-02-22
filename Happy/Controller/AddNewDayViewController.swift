@@ -12,11 +12,18 @@ import Foundation
 class AddNewDayViewController : UIViewController {
 
     @IBOutlet weak var datePicker: UIDatePicker!
-    @IBOutlet weak var nextButton: UIBarButtonItem!
     @IBOutlet weak var navBar: UINavigationBar!
+    
+    @IBAction func cancelButtonPressed(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func nextButtonPressed(_ sender: UIBarButtonItem) {
+    }
     
     var day : Day?
     var category : Category? = nil
+    var ratingSelected = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +36,11 @@ class AddNewDayViewController : UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
+    @IBAction func ratingPressed(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+        ratingSelected = sender.isSelected
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
