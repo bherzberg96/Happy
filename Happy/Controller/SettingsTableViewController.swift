@@ -41,10 +41,19 @@ class SettingsTableViewController: UITableViewController {
         }
     }
     
+    func setCategorySwitches() {
+        moodSwitch.setOn(defaults.bool(forKey: "Mood"), animated: false)
+        funSwitch.setOn(defaults.bool(forKey: "Fun"), animated: false)
+        socialSwitch.setOn(defaults.bool(forKey: "Social"), animated: false)
+        romanticSwitch.setOn(defaults.bool(forKey: "Romantic"), animated: false)
+        professionalSwitch.setOn(defaults.bool(forKey: "Professional"), animated: false)
+        healthSwitch.setOn(defaults.bool(forKey: "Health"), animated: false)
+        sleepSwitch.setOn(defaults.bool(forKey: "Sleep"), animated: false)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Output -> { key:hello;}
+        setCategorySwitches()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

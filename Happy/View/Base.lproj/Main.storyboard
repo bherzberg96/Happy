@@ -76,7 +76,7 @@
         <!--Day Picker-->
         <scene sceneID="0Qi-Cj-mwp">
             <objects>
-                <viewController storyboardIdentifier="datePicker" title="Day Picker" id="tTN-9p-nQD" customClass="AddNewDayViewController" customModule="Happy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Day Picker" id="tTN-9p-nQD" customClass="DayPickerViewController" customModule="Happy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3is-UF-oYo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -98,11 +98,7 @@
                                                 <action selector="cancelButtonPressed:" destination="tTN-9p-nQD" id="Ppy-SV-q87"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Next" id="alJ-gJ-Ryg">
-                                            <connections>
-                                                <segue destination="aX9-9J-ecZ" kind="show" id="CLi-gr-91X"/>
-                                            </connections>
-                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Next" id="alJ-gJ-Ryg"/>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -110,8 +106,18 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="dMg-IL-5kD"/>
                     </view>
-                    <navigationItem key="navigationItem" title="What day would you like to log?" id="S5R-VC-r1I">
+                    <navigationItem key="navigationItem" title="Pick a day to log." id="S5R-VC-r1I">
                         <barButtonItem key="backBarButtonItem" title="Back" id="Pv1-js-QYN"/>
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="Up7-Mg-V3P">
+                            <connections>
+                                <action selector="cancelButtonPressed:" destination="tTN-9p-nQD" id="ozT-da-TZO"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="RmA-iM-cF1">
+                            <connections>
+                                <segue destination="aX9-9J-ecZ" kind="show" identifier="nextRating" id="wWN-pA-4BN"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="datePicker" destination="lwK-cr-reb" id="MrX-zH-0Cf"/>
@@ -121,11 +127,10 @@
             </objects>
             <point key="canvasLocation" x="519" y="1642"/>
         </scene>
-        <!--Title-->
+        <!--Rating-->
         <scene sceneID="8tY-La-QcI">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aLI-CA-lB8" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController storyboardIdentifier="rating" id="aX9-9J-ecZ" customClass="AddNewDayViewController" customModule="Happy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="rating" title="Rating" id="aX9-9J-ecZ" customClass="RatingViewController" customModule="Happy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AzN-Zm-aGh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -133,7 +138,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="mx2-D7-2Ti">
                                 <rect key="frame" x="16" y="80" width="343" height="571"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rDk-Er-V9Y">
+                                    <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rDk-Er-V9Y">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="42.5"/>
                                         <color key="backgroundColor" red="0.46605539321899414" green="0.99770385026931763" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
@@ -144,7 +149,7 @@
                                             <action selector="ratingPressed:" destination="aX9-9J-ecZ" eventType="touchUpInside" id="yix-SA-cyC"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fOR-2x-bxx">
+                                    <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fOR-2x-bxx">
                                         <rect key="frame" x="0.0" y="58.5" width="343" height="43"/>
                                         <color key="backgroundColor" red="0.53457069396972656" green="0.88668817281723022" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
@@ -155,7 +160,7 @@
                                             <action selector="ratingPressed:" destination="aX9-9J-ecZ" eventType="touchUpInside" id="hSO-ND-1dU"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SsM-sp-A9A">
+                                    <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SsM-sp-A9A">
                                         <rect key="frame" x="0.0" y="117.5" width="343" height="42.5"/>
                                         <color key="backgroundColor" red="0.59604960680007935" green="0.77559852600097656" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
@@ -166,7 +171,7 @@
                                             <action selector="ratingPressed:" destination="aX9-9J-ecZ" eventType="touchUpInside" id="vkl-yn-nv5"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kr8-P8-04B">
+                                    <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kr8-P8-04B">
                                         <rect key="frame" x="0.0" y="176" width="343" height="43"/>
                                         <color key="backgroundColor" red="0.65966767072677612" green="0.66436517238616943" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
@@ -177,7 +182,7 @@
                                             <action selector="ratingPressed:" destination="aX9-9J-ecZ" eventType="touchUpInside" id="3HR-Tm-jUU"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T9d-Rm-25p">
+                                    <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T9d-Rm-25p">
                                         <rect key="frame" x="0.0" y="235" width="343" height="42.5"/>
                                         <color key="backgroundColor" red="0.71793240308761597" green="0.55292361974716187" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
@@ -188,7 +193,7 @@
                                             <action selector="ratingPressed:" destination="aX9-9J-ecZ" eventType="touchUpInside" id="ZQh-V9-ynu"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m3E-HG-jCk">
+                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m3E-HG-jCk">
                                         <rect key="frame" x="0.0" y="293.5" width="343" height="42.5"/>
                                         <color key="backgroundColor" red="0.77925229072570801" green="0.44104361534118652" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
@@ -199,7 +204,7 @@
                                             <action selector="ratingPressed:" destination="aX9-9J-ecZ" eventType="touchUpInside" id="doB-hd-8Ru"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hRN-rh-8M8">
+                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hRN-rh-8M8">
                                         <rect key="frame" x="0.0" y="352" width="343" height="43"/>
                                         <color key="backgroundColor" red="0.83591657876968384" green="0.32832258939743042" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
@@ -210,7 +215,7 @@
                                             <action selector="ratingPressed:" destination="aX9-9J-ecZ" eventType="touchUpInside" id="Gq3-ev-CuW"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DRi-e1-VzI">
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DRi-e1-VzI">
                                         <rect key="frame" x="0.0" y="411" width="343" height="42.5"/>
                                         <color key="backgroundColor" red="0.89607018232345581" green="0.21326237916946411" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
@@ -221,7 +226,7 @@
                                             <action selector="ratingPressed:" destination="aX9-9J-ecZ" eventType="touchUpInside" id="AdZ-BQ-XQ1"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Q2-2N-YSm">
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Q2-2N-YSm">
                                         <rect key="frame" x="0.0" y="469.5" width="343" height="43"/>
                                         <color key="backgroundColor" red="0.9519159197807312" green="0.088810719549655914" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
@@ -232,7 +237,7 @@
                                             <action selector="ratingPressed:" destination="aX9-9J-ecZ" eventType="touchUpInside" id="522-MH-z6d"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JMH-Qb-HIL">
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JMH-Qb-HIL">
                                         <rect key="frame" x="0.0" y="528.5" width="343" height="42.5"/>
                                         <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
@@ -256,16 +261,21 @@
                         <viewLayoutGuide key="safeArea" id="2GL-1e-Cp8"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="Lbw-Lm-XZd">
-                        <barButtonItem key="rightBarButtonItem" title="Next" id="hXY-1o-VLS"/>
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="hXY-1o-VLS">
+                            <connections>
+                                <action selector="nextButtonPressed:" destination="aX9-9J-ecZ" id="cSc-vY-muD"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aLI-CA-lB8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1321" y="1643"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zLJ-26-UWG">
             <objects>
-                <navigationController id="08y-gM-wue" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="addNewDay" id="08y-gM-wue" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="e9c-3Q-aXi">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -506,6 +516,9 @@
                                                 </label>
                                                 <switch opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rQG-Ne-Hvm">
                                                     <rect key="frame" x="311" y="6" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="switchToggled:" destination="MR5-ZA-BPL" eventType="valueChanged" id="zhh-UW-eZU"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
@@ -531,6 +544,9 @@
                                                 </label>
                                                 <switch opaque="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="br2-s1-iL7">
                                                     <rect key="frame" x="311" y="6.5" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="switchToggled:" destination="MR5-ZA-BPL" eventType="valueChanged" id="amm-Bu-sA0"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
@@ -556,6 +572,9 @@
                                                 </label>
                                                 <switch opaque="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WzW-er-LSs">
                                                     <rect key="frame" x="311" y="6.5" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="switchToggled:" destination="MR5-ZA-BPL" eventType="valueChanged" id="YJ6-zX-dPO"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
@@ -581,6 +600,9 @@
                                                 </label>
                                                 <switch opaque="NO" tag="4" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wc4-5u-10g">
                                                     <rect key="frame" x="311" y="6.5" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="switchToggled:" destination="MR5-ZA-BPL" eventType="valueChanged" id="mhH-Mp-hVl"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
@@ -606,6 +628,9 @@
                                                 </label>
                                                 <switch opaque="NO" tag="5" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7dI-pO-Xur">
                                                     <rect key="frame" x="311" y="6.5" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="switchToggled:" destination="MR5-ZA-BPL" eventType="valueChanged" id="9qz-JB-TfE"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
@@ -631,6 +656,9 @@
                                                 </label>
                                                 <switch opaque="NO" tag="6" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mTY-fK-smj">
                                                     <rect key="frame" x="311" y="6.5" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="switchToggled:" destination="MR5-ZA-BPL" eventType="valueChanged" id="2Bz-y7-Tji"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
