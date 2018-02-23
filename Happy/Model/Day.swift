@@ -30,10 +30,38 @@ class Day {
         return false
     }
     
+    func lastCategoryLoaded() -> Bool {
+        var count = 0
+        for category in categories {
+            if category.rating == 0 {
+                count += 1
+            }
+        }
+        
+        if (count == 1) {
+            return true
+        }
+        return false
+    }
+    
     func getNextCategory() -> Category {
         for category in categories {
             if category.rating == 0 {
                 return category
+            }
+        }
+        return categories[0]
+    }
+    
+    func getCategoryForNextButton() -> Category {
+        var firstEmptyCategoryFound = false
+        for category in categories {
+            if category.rating == 0 {
+            if !firstEmptyCategoryFound {
+                firstEmptyCategoryFound = true
+            } else {
+                return category
+                }
             }
         }
         return categories[0]

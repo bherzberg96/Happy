@@ -10,12 +10,7 @@ import UIKit
 
 class OverviewViewController: UIViewController {
     
-    @IBOutlet weak var bottomLabel: UILabel!
     let defaults = UserDefaults.standard
-    
-    @IBAction func refreshButtonPressed(_ sender: UIButton) {
-        bottomLabel.text = "\(defaults.bool(forKey: "healthSwitch"))"
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -10,48 +10,74 @@ import UIKit
 import Foundation
 
 class RatingViewController : UIViewController {
-
+    
+    @IBOutlet var ratings: [UIButton]!
+    @IBOutlet weak var nextButton: UIBarButtonItem!
     @IBOutlet weak var navBar: UINavigationBar!
     
     @IBAction func nextButtonPressed(_ sender: UIBarButtonItem) {
-//        let viewController:RatingViewController = RatingViewController
-//        // .instantiatViewControllerWithIdentifier() returns AnyObject! this must be downcast to utilize it
-//        viewController.day = day
-//        self.present(viewController, animated: false, completion: nil)
         saveRating()
-        let newVC: RatingViewController = storyboard?.instantiateViewController(withIdentifier: "rating") as! RatingViewController
-        newVC.day = self.day
-        self.navigationController?.pushViewController(newVC, animated: true)
+        if lastCategoryLoaded {
+            // Save day to local storage
+            self.dismiss(animated: true, completion: nil)
+        } else {
+            let newVC: RatingViewController = storyboard?.instantiateViewController(withIdentifier: "rating") as! RatingViewController
+            newVC.day = self.day
+            self.navigationController?.pushViewController(newVC, animated: true)
+        }
     }
     
-    var day : Day?
-    var category : Category? = nil
-    var ratingSelected = false
+    var day = Day(date: Date(), enabledCategories: [])
+    var category = Category(name: "PLACEHOLDER", rating: 0)
     var rating : Int = 0
+    var lastCategoryLoaded = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if (day != nil) {
-            if (day?.nextCategoryExists())! {
-                category = day?.getNextCategory()
-                self.title = category?.name
-            } else {
-                self.dismiss(animated: true, completion: nil)
-            }
+        configureNextButton()
+        
+        if (day.nextCategoryExists()) {
+            category = day.getNextCategory()
+            self.title = category.name
         }
+        //        else {
+        //            self.dismiss(animated: true, completion: nil)
+        //        }
         // Do any additional setup after loading the view, typically from a nib.
     }
     
+    func configureNextButton() {
+        nextButton.setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.blue], for: .normal)
+        nextButton.setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.gray], for: .disabled)
+        nextButton.isEnabled = false
+        if (day.lastCategoryLoaded()) {
+            lastCategoryLoaded = true
+            nextButton.title = "Save"
+        } else {
+            nextButton.title = "\(day.getCategoryForNextButton().name) >"
+        }
+    }
+    
     @IBAction func ratingPressed(_ sender: UIButton) {
+        if (!sender.isSelected) { //if button was not originally selected and is now being selected
+            for rating in ratings {
+                if (rating.tag != sender.tag) {
+                    rating.isSelected = false
+                }
+            }
+            nextButton.isEnabled = true
+            rating = sender.tag
+        } else {
+            nextButton.isEnabled = false
+            rating = 0
+        }
         sender.isSelected = !sender.isSelected
-        ratingSelected = sender.isSelected
-        rating = sender.tag
     }
     
     func saveRating() {
-        if let i = day?.categories.index(where: { $0.name == category?.name }) {
-            day?.categories[i].rating = rating
-            print("\(category?.name) rating is now \(rating)")
+        if let i = day.categories.index(where: { $0.name == category.name }) {
+            day.categories[i].rating = rating
+            print("\(category.name) rating is now \(rating)")
         }
     }
     
