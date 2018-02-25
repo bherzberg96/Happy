@@ -18,8 +18,9 @@ class RatingViewController : UIViewController {
     @IBAction func nextButtonPressed(_ sender: UIBarButtonItem) {
         saveRating()
         if lastCategoryLoaded {
-            // Save day to local storage
-            self.dismiss(animated: true, completion: nil)
+            let newVC: NotesViewController = storyboard?.instantiateViewController(withIdentifier: "notes") as! NotesViewController
+            newVC.day = self.day
+            self.navigationController?.pushViewController(newVC, animated: true)            
         } else {
             let newVC: RatingViewController = storyboard?.instantiateViewController(withIdentifier: "rating") as! RatingViewController
             newVC.day = self.day
@@ -52,7 +53,7 @@ class RatingViewController : UIViewController {
         nextButton.isEnabled = false
         if (day.lastCategoryLoaded()) {
             lastCategoryLoaded = true
-            nextButton.title = "Save"
+            nextButton.title = "Notes >"
         } else {
             nextButton.title = "\(day.getCategoryForNextButton().name) >"
         }

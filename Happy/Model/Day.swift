@@ -12,6 +12,7 @@ class Day {
     
     let date : Date
     var categories = [Category]()
+    var notes : String?
     
     init(date: Date, enabledCategories: [String]) {
         self.date = date

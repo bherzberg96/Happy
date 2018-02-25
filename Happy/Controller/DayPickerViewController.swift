@@ -50,6 +50,7 @@ class DayPickerViewController : UIViewController {
                 enabledCategories.append(category)
             }
         }
+        enabledCategories.append("Overall")
         return enabledCategories
     }
 }

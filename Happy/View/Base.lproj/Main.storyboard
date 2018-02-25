@@ -271,6 +271,53 @@
             </objects>
             <point key="canvasLocation" x="1321" y="1643"/>
         </scene>
+        <!--Notes-->
+        <scene sceneID="b8l-bp-K25">
+            <objects>
+                <viewController storyboardIdentifier="notes" id="mEL-xm-jdO" customClass="NotesViewController" customModule="Happy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZLV-ry-gfd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What happened today? (this field is optional)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aI5-1O-vCW">
+                                <rect key="frame" x="15" y="35" width="341.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TqX-Xx-3YX">
+                                <rect key="frame" x="15" y="71" width="345" height="581"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Nv9-57-0gG" firstAttribute="bottom" secondItem="TqX-Xx-3YX" secondAttribute="bottom" constant="15" id="0wq-og-f12"/>
+                            <constraint firstItem="TqX-Xx-3YX" firstAttribute="top" secondItem="aI5-1O-vCW" secondAttribute="bottom" constant="15" id="7T1-Ly-2ri"/>
+                            <constraint firstItem="aI5-1O-vCW" firstAttribute="top" secondItem="Nv9-57-0gG" secondAttribute="top" constant="15" id="SwG-KZ-S0H"/>
+                            <constraint firstItem="TqX-Xx-3YX" firstAttribute="leading" secondItem="Nv9-57-0gG" secondAttribute="leading" constant="15" id="bNa-si-4HV"/>
+                            <constraint firstItem="aI5-1O-vCW" firstAttribute="leading" secondItem="Nv9-57-0gG" secondAttribute="leading" constant="15" id="kdT-OJ-dAd"/>
+                            <constraint firstItem="Nv9-57-0gG" firstAttribute="trailing" secondItem="TqX-Xx-3YX" secondAttribute="trailing" constant="15" id="nlY-6u-W2R"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Nv9-57-0gG"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Notes" id="uNm-dL-VzG">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="GzL-h2-Bie">
+                            <connections>
+                                <action selector="saveButton:" destination="mEL-xm-jdO" id="pTF-lJ-f16"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="textField" destination="TqX-Xx-3YX" id="ylw-Dr-m8c"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nWh-DT-ogy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2109.5999999999999" y="1641.2293853073465"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="zLJ-26-UWG">
             <objects>

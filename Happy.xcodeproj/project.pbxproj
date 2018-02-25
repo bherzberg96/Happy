@@ -19,6 +19,7 @@
 		E7965DC72038D2F20056FC8E /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7965DC62038D2F20056FC8E /* OverviewViewController.swift */; };
 		E7965DC92038D33E0056FC8E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7965DC82038D33E0056FC8E /* SettingsViewController.swift */; };
 		E7A4B36F203F5EBE00B42DE6 /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A4B36E203F5EBE00B42DE6 /* RatingViewController.swift */; };
+		E7E1147520433BD900A5073E /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E1147420433BD900A5073E /* NotesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		E7965DC62038D2F20056FC8E /* OverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
 		E7965DC82038D33E0056FC8E /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		E7A4B36E203F5EBE00B42DE6 /* RatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingViewController.swift; sourceTree = "<group>"; };
+		E7E1147420433BD900A5073E /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 			children = (
 				E7965DB62038CF260056FC8E /* DayPickerViewController.swift */,
 				E7A4B36E203F5EBE00B42DE6 /* RatingViewController.swift */,
+				E7E1147420433BD900A5073E /* NotesViewController.swift */,
 				E74E686F203C9626002EB74E /* SettingsTableViewController.swift */,
 				E7965DC62038D2F20056FC8E /* OverviewViewController.swift */,
 				E7965DB42038CF260056FC8E /* JournalViewController.swift */,
@@ -187,6 +190,7 @@
 				E7965DB32038CF260056FC8E /* AppDelegate.swift in Sources */,
 				E7965DC92038D33E0056FC8E /* SettingsViewController.swift in Sources */,
 				E74E6878203E0C1C002EB74E /* Day.swift in Sources */,
+				E7E1147520433BD900A5073E /* NotesViewController.swift in Sources */,
 				E7A4B36F203F5EBE00B42DE6 /* RatingViewController.swift in Sources */,
 				E7965DB52038CF260056FC8E /* JournalViewController.swift in Sources */,
 				E74E6870203C9626002EB74E /* SettingsTableViewController.swift in Sources */,
