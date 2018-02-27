@@ -53,9 +53,9 @@ class RatingViewController : UIViewController {
         nextButton.isEnabled = false
         if (day.lastCategoryLoaded()) {
             lastCategoryLoaded = true
-            nextButton.title = "Notes >"
+            nextButton.title = "Notes"
         } else {
-            nextButton.title = "\(day.getCategoryForNextButton().name) >"
+            nextButton.title = "\(day.getCategoryForNextButton().name)"
         }
     }
     
