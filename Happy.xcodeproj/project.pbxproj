@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E74317D32048C38F00C665D6 /* Happy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E74317D12048C38F00C665D6 /* Happy.xcdatamodeld */; };
+		E74317E02048C47700C665D6 /* Date+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74317DC2048C47700C665D6 /* Date+CoreDataClass.swift */; };
+		E74317E12048C47700C665D6 /* Date+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74317DD2048C47700C665D6 /* Date+CoreDataProperties.swift */; };
+		E74317E22048C47700C665D6 /* Category+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74317DE2048C47700C665D6 /* Category+CoreDataClass.swift */; };
+		E74317E32048C47700C665D6 /* Category+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74317DF2048C47700C665D6 /* Category+CoreDataProperties.swift */; };
 		E74E6870203C9626002EB74E /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74E686F203C9626002EB74E /* SettingsTableViewController.swift */; };
 		E74E6878203E0C1C002EB74E /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74E6877203E0C1C002EB74E /* Day.swift */; };
 		E74E687A203E98F4002EB74E /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74E6879203E98F3002EB74E /* Category.swift */; };
@@ -23,6 +28,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E74317D22048C38F00C665D6 /* Happy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Happy.xcdatamodel; sourceTree = "<group>"; };
+		E74317DC2048C47700C665D6 /* Date+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E74317DD2048C47700C665D6 /* Date+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E74317DE2048C47700C665D6 /* Category+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E74317DF2048C47700C665D6 /* Category+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E74E686F203C9626002EB74E /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		E74E6877203E0C1C002EB74E /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		E74E6879203E98F3002EB74E /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
@@ -84,6 +94,11 @@
 			children = (
 				E74E6877203E0C1C002EB74E /* Day.swift */,
 				E74E6879203E98F3002EB74E /* Category.swift */,
+				E74317DC2048C47700C665D6 /* Date+CoreDataClass.swift */,
+				E74317DE2048C47700C665D6 /* Category+CoreDataClass.swift */,
+				E74317DD2048C47700C665D6 /* Date+CoreDataProperties.swift */,
+				E74317DF2048C47700C665D6 /* Category+CoreDataProperties.swift */,
+				E74317D12048C38F00C665D6 /* Happy.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -191,9 +206,14 @@
 				E7965DC92038D33E0056FC8E /* SettingsViewController.swift in Sources */,
 				E74E6878203E0C1C002EB74E /* Day.swift in Sources */,
 				E7E1147520433BD900A5073E /* NotesViewController.swift in Sources */,
+				E74317E32048C47700C665D6 /* Category+CoreDataProperties.swift in Sources */,
 				E7A4B36F203F5EBE00B42DE6 /* RatingViewController.swift in Sources */,
 				E7965DB52038CF260056FC8E /* JournalViewController.swift in Sources */,
+				E74317E22048C47700C665D6 /* Category+CoreDataClass.swift in Sources */,
+				E74317E02048C47700C665D6 /* Date+CoreDataClass.swift in Sources */,
+				E74317E12048C47700C665D6 /* Date+CoreDataProperties.swift in Sources */,
 				E74E6870203C9626002EB74E /* SettingsTableViewController.swift in Sources */,
+				E74317D32048C38F00C665D6 /* Happy.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,6 +400,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E74317D12048C38F00C665D6 /* Happy.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E74317D22048C38F00C665D6 /* Happy.xcdatamodel */,
+			);
+			currentVersion = E74317D22048C38F00C665D6 /* Happy.xcdatamodel */;
+			path = Happy.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = E7965DA72038CF260056FC8E /* Project object */;
 }
