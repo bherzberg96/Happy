@@ -75,7 +75,7 @@
         <!--Day Picker-->
         <scene sceneID="0Qi-Cj-mwp">
             <objects>
-                <viewController title="Day Picker" id="tTN-9p-nQD" customClass="DayPickerViewController" customModule="Happy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="datePicker" title="Day Picker" useStoryboardIdentifierAsRestorationIdentifier="YES" id="tTN-9p-nQD" customClass="NewDayViewController" customModule="Happy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3is-UF-oYo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -130,12 +130,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7aM-KU-MLD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="519" y="1642"/>
+            <point key="canvasLocation" x="538" y="1639"/>
         </scene>
         <!--Rating-->
         <scene sceneID="8tY-La-QcI">
             <objects>
-                <viewController storyboardIdentifier="rating" title="Rating" id="aX9-9J-ecZ" customClass="RatingViewController" customModule="Happy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="rating" title="Rating" useStoryboardIdentifierAsRestorationIdentifier="YES" id="aX9-9J-ecZ" customClass="NewDayViewController" customModule="Happy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AzN-Zm-aGh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -293,7 +293,7 @@
         <!--Notes-->
         <scene sceneID="b8l-bp-K25">
             <objects>
-                <viewController storyboardIdentifier="notes" id="mEL-xm-jdO" customClass="NotesViewController" customModule="Happy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="notes" useStoryboardIdentifierAsRestorationIdentifier="YES" id="mEL-xm-jdO" customClass="NewDayViewController" customModule="Happy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZLV-ry-gfd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

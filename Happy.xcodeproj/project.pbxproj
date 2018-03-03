@@ -13,7 +13,7 @@
 		E74E6870203C9626002EB74E /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74E686F203C9626002EB74E /* SettingsTableViewController.swift */; };
 		E7965DB32038CF260056FC8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7965DB22038CF260056FC8E /* AppDelegate.swift */; };
 		E7965DB52038CF260056FC8E /* JournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7965DB42038CF260056FC8E /* JournalViewController.swift */; };
-		E7965DB72038CF260056FC8E /* DayPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7965DB62038CF260056FC8E /* DayPickerViewController.swift */; };
+		E7965DB72038CF260056FC8E /* NewDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7965DB62038CF260056FC8E /* NewDayViewController.swift */; };
 		E7965DBA2038CF260056FC8E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7965DB82038CF260056FC8E /* Main.storyboard */; };
 		E7965DBC2038CF260056FC8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7965DBB2038CF260056FC8E /* Assets.xcassets */; };
 		E7965DBF2038CF260056FC8E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7965DBD2038CF260056FC8E /* LaunchScreen.storyboard */; };
@@ -31,7 +31,7 @@
 		E7965DAF2038CF260056FC8E /* Happy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Happy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7965DB22038CF260056FC8E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7965DB42038CF260056FC8E /* JournalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalViewController.swift; sourceTree = "<group>"; };
-		E7965DB62038CF260056FC8E /* DayPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPickerViewController.swift; sourceTree = "<group>"; };
+		E7965DB62038CF260056FC8E /* NewDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDayViewController.swift; sourceTree = "<group>"; };
 		E7965DB92038CF260056FC8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E7965DBB2038CF260056FC8E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E7965DBE2038CF260056FC8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -102,7 +102,7 @@
 		E7965DCC2038D48F0056FC8E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				E7965DB62038CF260056FC8E /* DayPickerViewController.swift */,
+				E7965DB62038CF260056FC8E /* NewDayViewController.swift */,
 				E7A4B36E203F5EBE00B42DE6 /* RatingViewController.swift */,
 				E7E1147420433BD900A5073E /* NotesViewController.swift */,
 				E74E686F203C9626002EB74E /* SettingsTableViewController.swift */,
@@ -187,7 +187,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7965DB72038CF260056FC8E /* DayPickerViewController.swift in Sources */,
+				E7965DB72038CF260056FC8E /* NewDayViewController.swift in Sources */,
 				E7965DC72038D2F20056FC8E /* OverviewViewController.swift in Sources */,
 				E7965DB32038CF260056FC8E /* AppDelegate.swift in Sources */,
 				E7965DC92038D33E0056FC8E /* SettingsViewController.swift in Sources */,
