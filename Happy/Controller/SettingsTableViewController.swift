@@ -23,37 +23,38 @@ class SettingsTableViewController: UITableViewController {
     @IBAction func switchToggled(_ sender: UISwitch) {
         switch sender.tag {
         case 0:
-            defaults.set(sender.isOn, forKey: "Mood")
+            defaults.set(sender.isOn, forKey: "mood")
         case 1:
-            defaults.set(sender.isOn, forKey: "Fun")
+            defaults.set(sender.isOn, forKey: "fun")
         case 2:
-            defaults.set(sender.isOn, forKey: "Social")
+            defaults.set(sender.isOn, forKey: "social")
         case 3:
-            defaults.set(sender.isOn, forKey: "Romantic")
+            defaults.set(sender.isOn, forKey: "romantic")
         case 4:
-            defaults.set(sender.isOn, forKey: "Professional")
+            defaults.set(sender.isOn, forKey: "professional")
         case 5:
-            defaults.set(sender.isOn, forKey: "Health")
+            defaults.set(sender.isOn, forKey: "health")
         case 6:
-            defaults.set(sender.isOn, forKey: "Sleep")
+            defaults.set(sender.isOn, forKey: "sleep")
         default:
             print("Unknown sender ID on switchToggled.")
         }
     }
     
     func setCategorySwitches() {
-        moodSwitch.setOn(defaults.bool(forKey: "Mood"), animated: false)
-        funSwitch.setOn(defaults.bool(forKey: "Fun"), animated: false)
-        socialSwitch.setOn(defaults.bool(forKey: "Social"), animated: false)
-        romanticSwitch.setOn(defaults.bool(forKey: "Romantic"), animated: false)
-        professionalSwitch.setOn(defaults.bool(forKey: "Professional"), animated: false)
-        healthSwitch.setOn(defaults.bool(forKey: "Health"), animated: false)
-        sleepSwitch.setOn(defaults.bool(forKey: "Sleep"), animated: false)
+        moodSwitch.setOn(defaults.bool(forKey: "mood"), animated: false)
+        funSwitch.setOn(defaults.bool(forKey: "fun"), animated: false)
+        socialSwitch.setOn(defaults.bool(forKey: "social"), animated: false)
+        romanticSwitch.setOn(defaults.bool(forKey: "romantic"), animated: false)
+        professionalSwitch.setOn(defaults.bool(forKey: "professional"), animated: false)
+        healthSwitch.setOn(defaults.bool(forKey: "health"), animated: false)
+        sleepSwitch.setOn(defaults.bool(forKey: "sleep"), animated: false)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setCategorySwitches()
+        defaults.set(true, forKey: "overall")
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

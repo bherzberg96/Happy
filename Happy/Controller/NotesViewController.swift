@@ -12,16 +12,33 @@ class NotesViewController: UIViewController {
     @IBOutlet weak var textField: UITextField!
     @IBAction func saveButton(_ sender: UIBarButtonItem) {
         saveNotes()
-        // Save day
+        
+//        coreDataEntry.fun = 8
+//        coreDataEntry.health = 8
+//        coreDataEntry.mood = 8
+//        coreDataEntry.notes = "jasdfjkd"
+//        coreDataEntry.overall = 8
+//        coreDataEntry.professional = 8
+//        coreDataEntry.romantic = 8
+//        coreDataEntry.sleep = 8
+//        coreDataEntry.social = 8
+        
+        print("Date: \(coreDataEntry.date)")
+        for category in Constants.allCategories {
+            print("Category \(category) rated \(coreDataEntry.value(forKey: category))")
+        }
+        print("Notes: \(coreDataEntry.notes)")
+        
+        PersistenceService.saveContext()
         self.dismiss(animated: true, completion: nil)
     }
     
-    var day = Day(date: Date(), enabledCategories: [])
+    var coreDataEntry : Entry = Entry()
     
     func saveNotes() {
         let notes = textField.text
         if notes != "" {
-            day.notes = notes
+            coreDataEntry.setValue(notes, forKey: "notes")
         }
     }
     

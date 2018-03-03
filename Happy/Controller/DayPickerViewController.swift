@@ -14,10 +14,11 @@ class DayPickerViewController : UIViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
     
     @IBAction func cancelButtonPressed(_ sender: UIBarButtonItem) {
+        coreDataEntry = Entry()
         self.dismiss(animated: true, completion: nil)
     }
     
-    var day : Day?
+    var coreDataEntry : Entry = Entry(context: PersistenceService.context)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,27 +32,30 @@ class DayPickerViewController : UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
         // Create a variable that you want to send
-        var newDay = Day(date: datePicker.date, enabledCategories: getEnabledCategories())
+        coreDataEntry.date = datePicker.date
+        print("Pre segue: \(coreDataEntry.date)")
+        addEnabledCategories()
+        
+//        var newDay = Day(date: datePicker.date, enabledCategories: getEnabledCategories())
         print("Preparing for segue")
         // Create a new variable to store the instance of PlayerTableViewController
         if (segue.identifier == "nextRating") {
             print("Segueing to 'nextRating' ID")
-            print("New day being passed on (\(newDay.date)")
+            print("New day being passed on (\(coreDataEntry.date)")
             let destinationVC = segue.destination as! RatingViewController
-            destinationVC.day = newDay
+            destinationVC.coreDataEntry = coreDataEntry
         }
     }
     
-    func getEnabledCategories() -> [String] {
-        let allCategories = ["Mood", "Fun", "Social", "Romantic", "Professional", "Health", "Sleep"]
-        var enabledCategories = [String]()
-        for category in allCategories {
-            if (UserDefaults.standard.bool(forKey: category)) {
-                enabledCategories.append(category)
+    func addEnabledCategories() {
+        for category in Constants.allCategories {
+            if UserDefaults.standard.bool(forKey: category) {
+                coreDataEntry.setValue(0, forKey: category)
+                print("\(category) rated \(coreDataEntry.value(forKey: category))")
             }
         }
-        enabledCategories.append("Overall")
-        return enabledCategories
+        
+        coreDataEntry.setValue(0, forKey: "overall")
     }
 }
 

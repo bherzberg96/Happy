@@ -15,48 +15,87 @@ class RatingViewController : UIViewController {
     @IBOutlet weak var nextButton: UIBarButtonItem!
     @IBOutlet weak var navBar: UINavigationBar!
     
+    var coreDataEntry : Entry = Entry()
+    
+    var categoryName : String?
+    var rating : Int = 0
+    
     @IBAction func nextButtonPressed(_ sender: UIBarButtonItem) {
         saveRating()
-        if lastCategoryLoaded {
+        
+        if nextButton.title == "Notes" {
             let newVC: NotesViewController = storyboard?.instantiateViewController(withIdentifier: "notes") as! NotesViewController
-            newVC.day = self.day
-            self.navigationController?.pushViewController(newVC, animated: true)            
+            newVC.coreDataEntry = self.coreDataEntry
+            self.navigationController?.pushViewController(newVC, animated: true)
         } else {
             let newVC: RatingViewController = storyboard?.instantiateViewController(withIdentifier: "rating") as! RatingViewController
-            newVC.day = self.day
+            newVC.coreDataEntry = self.coreDataEntry
             self.navigationController?.pushViewController(newVC, animated: true)
         }
     }
     
-    var day = Day(date: Date(), enabledCategories: [])
-    var category = Category(name: "PLACEHOLDER", rating: 0)
-    var rating : Int = 0
-    var lastCategoryLoaded = false
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("Post segue: \(coreDataEntry.date)")
         configureNextButton()
         
-        if (day.nextCategoryExists()) {
-            category = day.getNextCategory()
-            self.title = category.name
+        categoryName = getNextCategory()
+        if let notNilCategoryName = categoryName {
+            self.title = notNilCategoryName.capitalized
+        } else {
+            self.title = "Notes"
         }
-        //        else {
-        //            self.dismiss(animated: true, completion: nil)
-        //        }
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
+    func getNextCategory() -> String? {
+        for category in Constants.allCategories {
+            print("\(category) rated \(coreDataEntry.value(forKey: category))")
+            if let val = coreDataEntry.value(forKey: category) {
+                print(val as! Int)
+                if val as! Int == 0 {
+                    return category
+                }
+            }
+        }
+        
+        return nil
+    }
+    
+    func getTextForNextButton() -> String {
+        var count = 0
+        for category in Constants.allCategories {
+            if let val = coreDataEntry.value(forKey: category) {
+                if val as! Int == 0 {
+                    count += 1
+                    
+                    if count == 2 {
+                        return category.capitalized
+                    }
+                }
+            }
+        }
+        
+        return "Notes"
+    }
+    
+//    func lastCategoryLoaded() -> Bool {
+//        let categories : [Category] = Array(coreDataEntry.categoryRelationship!) as! [Category]
+//        var count = 0
+//        for category in categories {
+//            if category.rating == 0 {
+//                count += 1
+//            }
+//        }
+//
+//        return count == 1
+//    }
     
     func configureNextButton() {
         nextButton.setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.blue], for: .normal)
         nextButton.setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.gray], for: .disabled)
         nextButton.isEnabled = false
-        if (day.lastCategoryLoaded()) {
-            lastCategoryLoaded = true
-            nextButton.title = "Notes"
-        } else {
-            nextButton.title = "\(day.getCategoryForNextButton().name)"
-        }
+        nextButton.title = "\(getTextForNextButton())"
     }
     
     @IBAction func ratingPressed(_ sender: UIButton) {
@@ -76,10 +115,7 @@ class RatingViewController : UIViewController {
     }
     
     func saveRating() {
-        if let i = day.categories.index(where: { $0.name == category.name }) {
-            day.categories[i].rating = rating
-            print("\(category.name) rating is now \(rating)")
-        }
+        coreDataEntry.setValue(rating, forKey: categoryName!)
     }
     
     override func didReceiveMemoryWarning() {
@@ -87,5 +123,7 @@ class RatingViewController : UIViewController {
         // Dispose of any resources that can be recreated.
     }
 }
+
+
 
 

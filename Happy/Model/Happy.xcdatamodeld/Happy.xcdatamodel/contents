@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17D102" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Category" representedClassName="Category" syncable="YES">
-        <attribute name="enabled" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="name" attributeType="String" syncable="YES"/>
-        <attribute name="rating" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-    </entity>
-    <entity name="Date" representedClassName="Date" syncable="YES">
+    <entity name="Entry" representedClassName="Entry" syncable="YES" codeGenerationType="class">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <relationship name="categoryRelationship" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Category" syncable="YES"/>
+        <attribute name="fun" optional="YES" attributeType="Integer 16" minValueString="0" maxValueString="10" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="health" optional="YES" attributeType="Integer 16" minValueString="0" maxValueString="10" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="mood" optional="YES" attributeType="Integer 16" minValueString="0" maxValueString="10" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="overall" optional="YES" attributeType="Integer 16" minValueString="0" maxValueString="10" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="professional" optional="YES" attributeType="Integer 16" minValueString="0" maxValueString="10" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="romantic" optional="YES" attributeType="Integer 16" minValueString="0" maxValueString="10" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="sleep" optional="YES" attributeType="Integer 16" minValueString="0" maxValueString="10" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="social" optional="YES" attributeType="Integer 16" minValueString="0" maxValueString="10" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Date" positionX="189" positionY="24" width="128" height="73"/>
-        <element name="Category" positionX="-54" positionY="9" width="128" height="88"/>
+        <element name="Entry" positionX="441" positionY="-54" width="128" height="195"/>
     </elements>
 </model>
