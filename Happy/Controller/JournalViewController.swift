@@ -9,13 +9,40 @@
 import UIKit
 import CoreData
 
-class JournalViewController: UIViewController {
-    @IBOutlet weak var tableView: UITableView!
+
+var entries = [Entry]()
+var myIndex : Int = 0
+
+class JournalViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return entries.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .default, reuseIdentifier: "default")
+        let cellDate = entries[indexPath.row].date
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM d, YYYY"
+        cell.textLabel?.text = dateFormatter.string(from: cellDate!)
+        
+        return cell
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        myIndex = indexPath.row
+        performSegue(withIdentifier: "cellTapped", sender: self)
+    }
+    
     @IBAction func refresh(_ sender: UIBarButtonItem) {
         getEntries()
     }
     
-    var entries = [Entry]()
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,31 +68,10 @@ class JournalViewController: UIViewController {
                 }
                 print("Notes: \(entry.notes)")
             }
-            self.tableView.reloadData()
+            tableView.reloadData()
         } catch {
             // TODO
         }
-    }
-}
-
-extension JournalViewController: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return entries.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-        let cellDate = entries[indexPath.row].date
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMM d, YYYY"
-        cell.textLabel?.text = dateFormatter.string(from: cellDate!)
-        
-        return cell
     }
 }
 
