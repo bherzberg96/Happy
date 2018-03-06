@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class SettingsViewController: UIViewController {
     @IBOutlet weak var notificationTimeLabel: UILabel!
@@ -17,6 +18,7 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        notification()
     }
     
     override func didReceiveMemoryWarning() {
@@ -24,41 +26,32 @@ class SettingsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        return sections[section]
-//    }
-//    
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//        return sections.count
-//    }
-//    
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        switch section {
-//        case 0:
-//            return notifications.count
-//        case 1:
-//            return categories.count
-//        default:
-//            return 0
-//        }
-//    }
-//    
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        // Create an object of the dynamic cell “PlainCell”
-//        let plainCell = tableView.dequeueReusableCell(withIdentifier: "plainCell", for: indexPath)
-//        let timeCell = tableView.dequeueReusableCell(withIdentifier: "timeCell", for: indexPath)
-//        let switchCell = tableView.dequeueReusableCell(withIdentifier: "switchCell", for: indexPath)
-//        // Depending on the section, fill the textLabel with the relevant text
-//        switch indexPath.section {
-//        case 0:
-//            timeCell.textLabel?.text = notifications[indexPath.row]
-//            return timeCell
-//        case 1:
-//            switchCell.textLabel?.text = categories[indexPath.row]
-//            return switchCell
-//        default:
-//            break
-//        }
-//        return plainCell;
-//    }
+    func notification() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: {didAllow, error in
+        })
+        
+        let content = UNMutableNotificationContent()
+        content.title = "Log your day"
+        content.body = "Don't forget to log your day before you go to bed!"
+        content.badge = 1
+        
+        var dateComponents = DateComponents()
+        dateComponents.timeZone = TimeZone.current
+        dateComponents.hour = 21
+        dateComponents.minute = 00
+        let yourFireDate = Calendar.current.date(from: dateComponents)
+        
+        let compiledDate = Calendar.current.dateComponents(Set(arrayLiteral:  Calendar.Component.hour, Calendar.Component.minute), from: yourFireDate!)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: compiledDate, repeats: false)
+        let request = UNNotificationRequest(identifier: "log", content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: { error in
+            if let error = error {
+                //handle error
+            } else {
+                //notification set up successfully
+            }
+        })
+        
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+    }
 }

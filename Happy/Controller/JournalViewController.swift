@@ -63,6 +63,8 @@ class JournalViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func getEntries() {
         let fetchRequest: NSFetchRequest<Entry> = Entry.fetchRequest()
+        let sort = NSSortDescriptor(key: #keyPath(Entry.date), ascending: false)
+        fetchRequest.sortDescriptors = [sort]
         
         do {
             entries = try PersistenceService.context.fetch(fetchRequest)

@@ -8,6 +8,26 @@
 
 import UIKit
 
+extension UIToolbar {
+    func ToolbarPicker(mySelect : Selector) -> UIToolbar {
+        
+        let toolBar = UIToolbar()
+        
+        toolBar.barStyle = UIBarStyle.default
+        toolBar.isTranslucent = true
+        toolBar.tintColor = UIColor.black
+        toolBar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action: mySelect)
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
+        
+        toolBar.setItems([ spaceButton, doneButton], animated: false)
+        toolBar.isUserInteractionEnabled = true
+        
+        return toolBar
+    }
+}
+
 class SettingsTableViewController: UITableViewController {
     @IBOutlet weak var moodSwitch: UISwitch!
     @IBOutlet weak var funSwitch: UISwitch!
@@ -17,6 +37,7 @@ class SettingsTableViewController: UITableViewController {
     @IBOutlet weak var healthSwitch: UISwitch!
     @IBOutlet weak var sleepSwitch: UISwitch!
     @IBOutlet weak var notificationTime: UILabel!
+    let datePicker = UIDatePicker()
     
     let defaults = UserDefaults.standard
     
@@ -39,6 +60,10 @@ class SettingsTableViewController: UITableViewController {
         default:
             print("Unknown sender ID on switchToggled.")
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // TODO
     }
     
     func setCategorySwitches() {
