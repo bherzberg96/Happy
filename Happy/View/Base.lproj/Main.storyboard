@@ -401,7 +401,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="tableView" destination="PNc-LG-FId" id="Po9-qo-FlV"/>
-                        <segue destination="QRA-Ea-ddD" kind="show" identifier="cellTapped" id="HA7-zL-XGa"/>
+                        <segue destination="QRA-Ea-ddD" kind="show" identifier="cellTapped" id="Vrc-yR-isk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N2I-33-JGp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -411,13 +411,37 @@
         <!--Cell Tapped View Controller-->
         <scene sceneID="BSa-1k-Mcq">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c1X-bV-u3e" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="QRA-Ea-ddD" customClass="CellTappedViewController" customModule="Happy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5c3-lQ-yNy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xZF-MY-AUX">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Title" id="nDv-TQ-5DK">
+                                        <barButtonItem key="rightBarButtonItem" title="Edit" id="xuI-tj-BLg"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="anJ-Iy-XhA">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Item" id="ka0-Ar-HDH"/>
+                                </items>
+                            </toolbar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zvd-f5-mAl">
+                                <rect key="frame" x="164.5" y="573" width="45" height="30"/>
+                                <state key="normal" title="Delete"/>
+                                <connections>
+                                    <action selector="deleteButtonPressed:" destination="QRA-Ea-ddD" eventType="touchUpInside" id="Iau-gq-b4M"/>
+                                </connections>
+                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QxN-l6-4fJ">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="494"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="X7Q-gt-F3o">
@@ -437,17 +461,28 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="QxN-l6-4fJ" firstAttribute="leading" secondItem="0au-IU-bDT" secondAttribute="leading" id="69B-BT-Ocz"/>
-                            <constraint firstItem="0au-IU-bDT" firstAttribute="bottom" secondItem="QxN-l6-4fJ" secondAttribute="bottom" id="FJh-8z-Hcn"/>
-                            <constraint firstItem="0au-IU-bDT" firstAttribute="trailing" secondItem="QxN-l6-4fJ" secondAttribute="trailing" id="SsG-NG-UZL"/>
-                            <constraint firstItem="QxN-l6-4fJ" firstAttribute="top" secondItem="0au-IU-bDT" secondAttribute="top" id="upN-ys-M0r"/>
+                            <constraint firstItem="QxN-l6-4fJ" firstAttribute="trailing" secondItem="0au-IU-bDT" secondAttribute="trailing" id="KEL-2V-xaT"/>
+                            <constraint firstItem="Zvd-f5-mAl" firstAttribute="centerX" secondItem="5c3-lQ-yNy" secondAttribute="centerX" id="Tap-m7-s5d"/>
+                            <constraint firstItem="QxN-l6-4fJ" firstAttribute="leading" secondItem="0au-IU-bDT" secondAttribute="leading" id="mNc-XG-aHm"/>
+                            <constraint firstItem="Zvd-f5-mAl" firstAttribute="top" secondItem="QxN-l6-4fJ" secondAttribute="bottom" constant="15" id="u7R-ZV-7OC"/>
+                            <constraint firstItem="0au-IU-bDT" firstAttribute="bottom" secondItem="Zvd-f5-mAl" secondAttribute="bottom" constant="15" id="wHa-TT-4aB"/>
+                            <constraint firstItem="QxN-l6-4fJ" firstAttribute="top" secondItem="0au-IU-bDT" secondAttribute="top" id="xCj-gP-yrs"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0au-IU-bDT"/>
                     </view>
+                    <navigationItem key="navigationItem" id="M7g-NV-3go">
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="PRN-bg-oBP">
+                            <connections>
+                                <action selector="editButtonTapped:" destination="QRA-Ea-ddD" id="OcV-23-Qco"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="QxN-l6-4fJ" id="jCw-li-R3w"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="c1X-bV-u3e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1954" y="769"/>
+            <point key="canvasLocation" x="2016.8" y="768.66566716641682"/>
         </scene>
         <!--Settings-->
         <scene sceneID="vHk-Rj-Q8U">
@@ -479,7 +514,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6fD-e7-RGW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3534" y="769"/>
+            <point key="canvasLocation" x="3872.8000000000002" y="768.66566716641682"/>
         </scene>
         <!--Settings Table View Controller-->
         <scene sceneID="Wy4-aY-Phs">
@@ -741,7 +776,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ffE-dK-rrg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4270" y="766"/>
+            <point key="canvasLocation" x="4608.8000000000002" y="765.51724137931035"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">

@@ -35,6 +35,8 @@ class JournalViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         myIndex = indexPath.row
+        
+        print("Performing segue to Cell Tapped")
         performSegue(withIdentifier: "cellTapped", sender: self)
     }
     
@@ -48,6 +50,11 @@ class JournalViewController: UIViewController, UITableViewDataSource, UITableVie
         super.viewDidLoad()
         getEntries()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        getEntries()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -58,17 +65,19 @@ class JournalViewController: UIViewController, UITableViewDataSource, UITableVie
         let fetchRequest: NSFetchRequest<Entry> = Entry.fetchRequest()
         
         do {
-            let coreDataEntries = try PersistenceService.context.fetch(fetchRequest)
-            entries = coreDataEntries
-            for entry in entries {
-                print("------------------------")
-                print("Date: \(entry.date)")
-                for category in Constants.allCategories {
-                    print("Category \(category) rated \(entry.value(forKey: category))")
+            entries = try PersistenceService.context.fetch(fetchRequest)
+            
+            // Print statements
+            print("Number of entires in Core Data: \(entries.count)")
+            if entries.count > 0 {
+                print("Entries in Core Data:")
+                for entry in entries {
+                    print("\t\(entry.date)")
                 }
-                print("Notes: \(entry.notes)")
             }
+    
             tableView.reloadData()
+            print("Reloading tableView")
         } catch {
             // TODO
         }

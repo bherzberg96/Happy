@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 struct EntryStruct {
     let key: String
@@ -20,7 +21,9 @@ struct EntryStruct {
 
 class CellTappedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var tableView: UITableView!
     var entry = [EntryStruct]()
+    var coreDataEntry = Entry()
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //        var count = 0
@@ -51,7 +54,7 @@ class CellTappedViewController: UIViewController, UITableViewDelegate, UITableVi
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let coreDataEntry = entries[myIndex]
+        coreDataEntry = entries[myIndex]
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMM d, YYYY"
@@ -70,7 +73,30 @@ class CellTappedViewController: UIViewController, UITableViewDelegate, UITableVi
         
         // Do any additional setup after loading the view.
     }
-
+    
+    @IBAction func editButtonTapped(_ sender: UIBarButtonItem) {
+        if(self.tableView.isEditing == true)
+        {
+            self.tableView.isEditing = false
+            self.navigationItem.rightBarButtonItem?.title = "Edit"
+        }
+        else
+        {
+            self.tableView.isEditing = true
+            self.navigationItem.rightBarButtonItem?.title = "Done"
+        }
+    }
+    
+    // temporary implementation
+    @IBAction func deleteButtonPressed(_ sender: UIButton) {
+        let date = coreDataEntry.date
+        PersistenceService.context.delete(coreDataEntry)
+        print("Entry with date \(date) deleted from Core Data")
+        
+        print("Segueing back to Journal")
+        navigationController?.popViewController(animated: true)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

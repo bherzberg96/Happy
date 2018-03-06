@@ -5,7 +5,7 @@
         <attribute name="fun" optional="YES" attributeType="Integer 16" minValueString="0" maxValueString="10" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="health" optional="YES" attributeType="Integer 16" minValueString="0" maxValueString="10" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="mood" optional="YES" attributeType="Integer 16" minValueString="0" maxValueString="10" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="notes" attributeType="String" syncable="YES"/>
+        <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="overall" attributeType="Integer 16" minValueString="0" maxValueString="10" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="professional" optional="YES" attributeType="Integer 16" minValueString="0" maxValueString="10" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="romantic" optional="YES" attributeType="Integer 16" minValueString="0" maxValueString="10" usesScalarValueType="YES" syncable="YES"/>
