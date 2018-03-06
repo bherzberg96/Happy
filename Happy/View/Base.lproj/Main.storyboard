@@ -411,7 +411,6 @@
         <!--Cell Tapped View Controller-->
         <scene sceneID="BSa-1k-Mcq">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="c1X-bV-u3e" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="QRA-Ea-ddD" customClass="CellTappedViewController" customModule="Happy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5c3-lQ-yNy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -481,6 +480,7 @@
                         <outlet property="tableView" destination="QxN-l6-4fJ" id="jCw-li-R3w"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c1X-bV-u3e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2016.8" y="768.66566716641682"/>
         </scene>

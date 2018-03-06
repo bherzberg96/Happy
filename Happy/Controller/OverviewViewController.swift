@@ -16,7 +16,7 @@ class OverviewViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         deleteOldData()
-        populateWithFakeData(limit: 12)
+        populateWithFakeData(limit: 1)
     }
     
     func deleteOldData() {

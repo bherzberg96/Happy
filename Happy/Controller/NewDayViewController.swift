@@ -8,6 +8,7 @@
 
 import UIKit
 import Foundation
+import CoreData
 
 class NewDayViewController : UIViewController {
 
@@ -18,7 +19,9 @@ class NewDayViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if (self.restorationIdentifier == "rating") {
+        if (self.restorationIdentifier == "datePicker") {
+            datePicker.maximumDate = Date()
+        } else if (self.restorationIdentifier == "rating") {
             configureNextButton()
         
             category = getNextCategory()
@@ -43,18 +46,40 @@ class NewDayViewController : UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
-        // Create a variable that you want to send
-        let date = datePicker.date
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy/MM/dd"
+        dateFormatter.timeZone = TimeZone.current
+        let localDate = dateFormatter.date(from: dateFormatter.string(from: datePicker.date))
         
-        print("Preparing for segue")
-        if (segue.identifier == "nextRating") {
-            print("Segueing to 'nextRating' ID")
-            print("New day being passed on (\(date)")
-            let destinationVC = segue.destination as! NewDayViewController
-            destinationVC.date = date
-            destinationVC.categories =
-                getEnabledCategories()
+        if (entryForDateAlreadyExists(date: localDate!)) {
+            let alert = UIAlertController(title: "Entry already exists", message: "You have already logged an entry for this day. To edit this day, edit it in the Journal tab.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            if (segue.identifier == "nextRating") {
+                let destinationVC = segue.destination as! NewDayViewController
+                destinationVC.date = date
+                destinationVC.categories =
+                    getEnabledCategories()
+            }
         }
+    }
+    
+    func entryForDateAlreadyExists(date : Date) -> Bool {
+        let fetchRequest: NSFetchRequest<Entry> = Entry.fetchRequest()
+        
+        do {
+            entries = try PersistenceService.context.fetch(fetchRequest)
+            for entry in entries {
+                if (entry.date == date) {
+                    return true
+                }
+            }
+        } catch {
+            // TODO
+        }
+        
+        return false
     }
     
     func getEnabledCategories() -> [String : Int] {
