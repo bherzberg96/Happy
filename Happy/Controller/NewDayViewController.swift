@@ -46,10 +46,12 @@ class NewDayViewController : UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
+        let date = datePicker.date
+        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy/MM/dd"
         dateFormatter.timeZone = TimeZone.current
-        let localDate = dateFormatter.date(from: dateFormatter.string(from: datePicker.date))
+        let localDate = dateFormatter.date(from: dateFormatter.string(from: date))
         
         if (entryForDateAlreadyExists(date: localDate!)) {
             let alert = UIAlertController(title: "Entry already exists", message: "You have already logged an entry for this day. To edit this day, edit it in the Journal tab.", preferredStyle: UIAlertControllerStyle.alert)
@@ -184,11 +186,11 @@ class NewDayViewController : UIViewController {
         }
         PersistenceService.saveContext()
         
-//        print("Date: \(coreDataEntry.date)")
-//        for category in Constants.allCategories {
-//            print("Category \(category) rated \(coreDataEntry.value(forKey: category))")
-//        }
-//        print("Notes: \(coreDataEntry.notes)")
+        print("Date: \(coreDataEntry.date)")
+        for category in Constants.allCategories {
+            print("Category \(category) rated \(coreDataEntry.value(forKey: category))")
+        }
+        print("Notes: \(coreDataEntry.notes)")
         
         self.dismiss(animated: true, completion: nil)
     }
