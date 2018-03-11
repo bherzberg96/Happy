@@ -182,7 +182,7 @@ class NewDayViewController : UIViewController {
             }
         }
         if (textField.text != "") {
-            coreDataEntry.notes = textField.text
+            coreDataEntry.setValue(textField.text, forKey: "notes")
         }
         PersistenceService.saveContext()
         
