@@ -151,10 +151,9 @@ class NewDayViewController : UIViewController {
     
     func getNextCategory() -> String? {
         for category in Constants.allCategories {
-            print("\(category) rated \(categories[category])")
-                if categories[category] == 0 {
-                    return category
-                }
+            if categories[category] == 0 {
+                return category
+            }
         }
         
         return nil

@@ -7,10 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DDB75325936BD47FF7DDAE0F /* Pods_Happy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5575DDF096E78B2E14F7967 /* Pods_Happy.framework */; };
 		E74317D32048C38F00C665D6 /* Happy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E74317D12048C38F00C665D6 /* Happy.xcdatamodeld */; };
 		E74317E92048C5C900C665D6 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74317E82048C5C900C665D6 /* PersistenceService.swift */; };
 		E74318422049FBCB00C665D6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74318412049FBCB00C665D6 /* Constants.swift */; };
 		E74E6870203C9626002EB74E /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74E686F203C9626002EB74E /* SettingsTableViewController.swift */; };
+		E7569E092055BCDB00D3D90E /* BarChartFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7569E082055BCDB00D3D90E /* BarChartFormatter.swift */; };
+		E7569E0B205700FF00D3D90E /* FirstGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7569E0A205700FF00D3D90E /* FirstGraphViewController.swift */; };
 		E7965DB32038CF260056FC8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7965DB22038CF260056FC8E /* AppDelegate.swift */; };
 		E7965DB52038CF260056FC8E /* JournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7965DB42038CF260056FC8E /* JournalViewController.swift */; };
 		E7965DB72038CF260056FC8E /* NewDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7965DB62038CF260056FC8E /* NewDayViewController.swift */; };
@@ -23,10 +26,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8319653872B4FD4D846A3AFD /* Pods-Happy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Happy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Happy/Pods-Happy.debug.xcconfig"; sourceTree = "<group>"; };
+		A5575DDF096E78B2E14F7967 /* Pods_Happy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Happy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC7A7FE13B964FC083432B17 /* Pods-Happy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Happy.release.xcconfig"; path = "Pods/Target Support Files/Pods-Happy/Pods-Happy.release.xcconfig"; sourceTree = "<group>"; };
 		E74317D22048C38F00C665D6 /* Happy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Happy.xcdatamodel; sourceTree = "<group>"; };
 		E74317E82048C5C900C665D6 /* PersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
 		E74318412049FBCB00C665D6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E74E686F203C9626002EB74E /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		E7569E082055BCDB00D3D90E /* BarChartFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartFormatter.swift; sourceTree = "<group>"; };
+		E7569E0A205700FF00D3D90E /* FirstGraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstGraphViewController.swift; sourceTree = "<group>"; };
 		E7965DAF2038CF260056FC8E /* Happy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Happy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7965DB22038CF260056FC8E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7965DB42038CF260056FC8E /* JournalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalViewController.swift; sourceTree = "<group>"; };
@@ -45,17 +53,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDB75325936BD47FF7DDAE0F /* Pods_Happy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		626B30E3BC9649240B1B723A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8319653872B4FD4D846A3AFD /* Pods-Happy.debug.xcconfig */,
+				BC7A7FE13B964FC083432B17 /* Pods-Happy.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		ABF450610293BDAD38081DB4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A5575DDF096E78B2E14F7967 /* Pods_Happy.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E7965DA62038CF260056FC8E = {
 			isa = PBXGroup;
 			children = (
 				E7965DB12038CF260056FC8E /* Happy */,
 				E7965DB02038CF260056FC8E /* Products */,
+				626B30E3BC9649240B1B723A /* Pods */,
+				ABF450610293BDAD38081DB4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -84,6 +112,7 @@
 			children = (
 				E74317D12048C38F00C665D6 /* Happy.xcdatamodeld */,
 				E74318412049FBCB00C665D6 /* Constants.swift */,
+				E7569E082055BCDB00D3D90E /* BarChartFormatter.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -100,6 +129,7 @@
 		E7965DCC2038D48F0056FC8E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				E7569E0A205700FF00D3D90E /* FirstGraphViewController.swift */,
 				E7965DB62038CF260056FC8E /* NewDayViewController.swift */,
 				E7C6245E204B2BDC0019466D /* CellTappedViewController.swift */,
 				E74E686F203C9626002EB74E /* SettingsTableViewController.swift */,
@@ -119,9 +149,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E7965DC32038CF260056FC8E /* Build configuration list for PBXNativeTarget "Happy" */;
 			buildPhases = (
+				1240CB1B0BD70235A4EE528D /* [CP] Check Pods Manifest.lock */,
 				E7965DAB2038CF260056FC8E /* Sources */,
 				E7965DAC2038CF260056FC8E /* Frameworks */,
 				E7965DAD2038CF260056FC8E /* Resources */,
+				2BF66BB0D0FF074E028B8248 /* [CP] Embed Pods Frameworks */,
+				22DC3764776EF7D6A8224679 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -179,6 +212,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1240CB1B0BD70235A4EE528D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Happy-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		22DC3764776EF7D6A8224679 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Happy/Pods-Happy-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2BF66BB0D0FF074E028B8248 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Happy/Pods-Happy-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Happy/Pods-Happy-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E7965DAB2038CF260056FC8E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -188,11 +275,13 @@
 				E7965DC72038D2F20056FC8E /* OverviewViewController.swift in Sources */,
 				E7965DB32038CF260056FC8E /* AppDelegate.swift in Sources */,
 				E7965DC92038D33E0056FC8E /* SettingsViewController.swift in Sources */,
+				E7569E092055BCDB00D3D90E /* BarChartFormatter.swift in Sources */,
 				E7965DB52038CF260056FC8E /* JournalViewController.swift in Sources */,
 				E74317E92048C5C900C665D6 /* PersistenceService.swift in Sources */,
 				E74E6870203C9626002EB74E /* SettingsTableViewController.swift in Sources */,
 				E74318422049FBCB00C665D6 /* Constants.swift in Sources */,
 				E7C6245F204B2BDC0019466D /* CellTappedViewController.swift in Sources */,
+				E7569E0B205700FF00D3D90E /* FirstGraphViewController.swift in Sources */,
 				E74317D32048C38F00C665D6 /* Happy.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -328,6 +417,7 @@
 		};
 		E7965DC42038CF260056FC8E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8319653872B4FD4D846A3AFD /* Pods-Happy.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -344,6 +434,7 @@
 		};
 		E7965DC52038CF260056FC8E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BC7A7FE13B964FC083432B17 /* Pods-Happy.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

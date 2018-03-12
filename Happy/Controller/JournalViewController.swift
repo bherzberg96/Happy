@@ -9,7 +9,6 @@
 import UIKit
 import CoreData
 
-
 var entries = [Entry]()
 var myIndex : Int = 0
 
