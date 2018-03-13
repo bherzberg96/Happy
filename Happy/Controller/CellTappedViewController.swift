@@ -26,19 +26,6 @@ class CellTappedViewController: UIViewController, UITableViewDelegate, UITableVi
     var coreDataEntry = Entry()
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        var count = 0
-//
-//        for item in entry {
-//            if (item.key != "notes") {
-//                if item.value != "nil" && item.value != "" {
-//                    count += 1
-//                }
-//            } else {
-//                count += 1
-//            }
-//        }
-//
-//        return count
         return entry.count
     }
     
@@ -62,14 +49,15 @@ class CellTappedViewController: UIViewController, UITableViewDelegate, UITableVi
         entry.append(EntryStruct(key: "date", value: dateFormatter.string(from: coreDataEntry.date!)))
         
         for category in Constants.allCategories {
-//            entry.updateValue(coreDataEntry.value(forKey: category), forKey: category)
             if let entryVal = coreDataEntry.value(forKey: category) {
                 entry.append(EntryStruct(key: category, value: "\(entryVal)"))
             }
         }
-        
-//        entry.updateValue(coreDataEntry.notes, forKey: "notes")
-        entry.append(EntryStruct(key: "notes", value: "\(coreDataEntry.notes!)"))
+        var notesVal = ""
+        if coreDataEntry.value(forKey: "notes") != nil {
+            notesVal = coreDataEntry.value(forKey: "notes") as! String
+        }
+        entry.append(EntryStruct(key: "notes", value: "\(notesVal)"))
         
         // Do any additional setup after loading the view.
     }
@@ -87,7 +75,6 @@ class CellTappedViewController: UIViewController, UITableViewDelegate, UITableVi
         }
     }
     
-    // temporary implementation
     @IBAction func deleteButtonPressed(_ sender: UIButton) {
         let date = coreDataEntry.date
         PersistenceService.context.delete(coreDataEntry)

@@ -16,7 +16,7 @@ class OverviewViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         deleteOldData()
-        populateWithFakeData(limit: 10)
+        populateWithFakeData(limit: 0)
     }
     
     func deleteOldData() {
@@ -49,8 +49,34 @@ class OverviewViewController: UIViewController {
             i += 1
         }
         
-        PersistenceService.saveContext()
+        if limit > 0 {
+            PersistenceService.saveContext()
+        }
     }
+    
+    func getAverage(category: String) -> Double {
+        let fetchRequest: NSFetchRequest<Entry> = Entry.fetchRequest()
+        let sort = NSSortDescriptor(key: #keyPath(Entry.date), ascending: false)
+        fetchRequest.sortDescriptors = [sort]
+        var count : Double = 0
+        var sum : Double = 0
+        
+        do {
+            entries = try PersistenceService.context.fetch(fetchRequest)
+            for entry in entries {
+                if let val = entry.value(forKey: category) {
+                    sum += val as! Double
+                }
+                count += 1
+            }
+        } catch {
+            // TODO
+        }
+        
+        return sum/count
+    }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
