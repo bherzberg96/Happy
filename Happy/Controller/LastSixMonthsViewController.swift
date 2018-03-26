@@ -16,13 +16,13 @@ class LastSixMonthsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let previousMonths = getPreviousMonths() //replace with "Date()" after done creating fake data
+        let previousMonths = getPreviousMonths()
         
         let fetchRequest: NSFetchRequest<Category> = Category.fetchRequest()
         
         do {
             let formato:BarChartFormatter = BarChartFormatter(previousMonths: previousMonths)
-            let xaxis:XAxis = XAxis()
+            let xaxis : XAxis = XAxis()
             
             let categories = try PersistenceService.context.fetch(fetchRequest)
             var dataSets : [LineChartDataSet] = [LineChartDataSet]()
@@ -39,6 +39,10 @@ class LastSixMonthsViewController: UIViewController {
                         //                        formato.stringForValue(Double(i), axis: xaxis)
                     }
                 }
+                
+                let temp = categories.first(where: {$0.name == "mood"})!
+                let novAvg = (temp.value(forKey: "firstMonthSum") as! Double)/(temp.value(forKey: "firstMonthCount") as! Double)
+                let augAvg = (temp.value(forKey: "fourthMonthSum") as! Double)/(temp.value(forKey: "fourthMonthCount") as! Double)
                 
                 let color = Constants.categoryColors[category]!
                 let set: LineChartDataSet = LineChartDataSet(values: yVals, label: category.capitalized)
@@ -79,13 +83,13 @@ class LastSixMonthsViewController: UIViewController {
         for i in 1...Constants.previousMonthsCount {
             var place = ""
             switch i {
-            case 1:
-                place = "first"
-            case 2:
-                place = "second"
-            case 3:
-                place = "third"
             case 4:
+                place = "first"
+            case 3:
+                place = "second"
+            case 2:
+                place = "third"
+            case 1:
                 place = "fourth"
             default:
                 place = "ERROR"
@@ -130,6 +134,6 @@ class LastSixMonthsViewController: UIViewController {
             }
         }
         
-        return array
+        return array.reversed()
     }
 }
