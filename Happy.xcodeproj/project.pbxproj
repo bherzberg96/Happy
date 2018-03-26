@@ -13,7 +13,11 @@
 		E74318422049FBCB00C665D6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74318412049FBCB00C665D6 /* Constants.swift */; };
 		E74E6870203C9626002EB74E /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74E686F203C9626002EB74E /* SettingsTableViewController.swift */; };
 		E7569E092055BCDB00D3D90E /* BarChartFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7569E082055BCDB00D3D90E /* BarChartFormatter.swift */; };
-		E7569E0B205700FF00D3D90E /* FirstGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7569E0A205700FF00D3D90E /* FirstGraphViewController.swift */; };
+		E7569E0B205700FF00D3D90E /* LastSixMonthsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7569E0A205700FF00D3D90E /* LastSixMonthsViewController.swift */; };
+		E782AEE42060D25A008DCCEB /* MonthlyStorageUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E782AEE32060D25A008DCCEB /* MonthlyStorageUnit.swift */; };
+		E782AEE62060D633008DCCEB /* MonthlyStorageUnitCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E782AEE52060D633008DCCEB /* MonthlyStorageUnitCategory.swift */; };
+		E78E958B2058907800E019EF /* LastSevenDaysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78E958A2058907800E019EF /* LastSevenDaysViewController.swift */; };
+		E78E958D2058909700E019EF /* AveragesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78E958C2058909700E019EF /* AveragesViewController.swift */; };
 		E7965DB32038CF260056FC8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7965DB22038CF260056FC8E /* AppDelegate.swift */; };
 		E7965DB52038CF260056FC8E /* JournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7965DB42038CF260056FC8E /* JournalViewController.swift */; };
 		E7965DB72038CF260056FC8E /* NewDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7965DB62038CF260056FC8E /* NewDayViewController.swift */; };
@@ -34,7 +38,11 @@
 		E74318412049FBCB00C665D6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E74E686F203C9626002EB74E /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		E7569E082055BCDB00D3D90E /* BarChartFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartFormatter.swift; sourceTree = "<group>"; };
-		E7569E0A205700FF00D3D90E /* FirstGraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstGraphViewController.swift; sourceTree = "<group>"; };
+		E7569E0A205700FF00D3D90E /* LastSixMonthsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastSixMonthsViewController.swift; sourceTree = "<group>"; };
+		E782AEE32060D25A008DCCEB /* MonthlyStorageUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyStorageUnit.swift; sourceTree = "<group>"; };
+		E782AEE52060D633008DCCEB /* MonthlyStorageUnitCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyStorageUnitCategory.swift; sourceTree = "<group>"; };
+		E78E958A2058907800E019EF /* LastSevenDaysViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastSevenDaysViewController.swift; sourceTree = "<group>"; };
+		E78E958C2058909700E019EF /* AveragesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AveragesViewController.swift; sourceTree = "<group>"; };
 		E7965DAF2038CF260056FC8E /* Happy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Happy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7965DB22038CF260056FC8E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7965DB42038CF260056FC8E /* JournalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalViewController.swift; sourceTree = "<group>"; };
@@ -113,6 +121,8 @@
 				E74317D12048C38F00C665D6 /* Happy.xcdatamodeld */,
 				E74318412049FBCB00C665D6 /* Constants.swift */,
 				E7569E082055BCDB00D3D90E /* BarChartFormatter.swift */,
+				E782AEE32060D25A008DCCEB /* MonthlyStorageUnit.swift */,
+				E782AEE52060D633008DCCEB /* MonthlyStorageUnitCategory.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -129,7 +139,9 @@
 		E7965DCC2038D48F0056FC8E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				E7569E0A205700FF00D3D90E /* FirstGraphViewController.swift */,
+				E7569E0A205700FF00D3D90E /* LastSixMonthsViewController.swift */,
+				E78E958A2058907800E019EF /* LastSevenDaysViewController.swift */,
+				E78E958C2058909700E019EF /* AveragesViewController.swift */,
 				E7965DB62038CF260056FC8E /* NewDayViewController.swift */,
 				E7C6245E204B2BDC0019466D /* CellTappedViewController.swift */,
 				E74E686F203C9626002EB74E /* SettingsTableViewController.swift */,
@@ -273,15 +285,19 @@
 			files = (
 				E7965DB72038CF260056FC8E /* NewDayViewController.swift in Sources */,
 				E7965DC72038D2F20056FC8E /* OverviewViewController.swift in Sources */,
+				E782AEE62060D633008DCCEB /* MonthlyStorageUnitCategory.swift in Sources */,
 				E7965DB32038CF260056FC8E /* AppDelegate.swift in Sources */,
 				E7965DC92038D33E0056FC8E /* SettingsViewController.swift in Sources */,
+				E78E958D2058909700E019EF /* AveragesViewController.swift in Sources */,
 				E7569E092055BCDB00D3D90E /* BarChartFormatter.swift in Sources */,
 				E7965DB52038CF260056FC8E /* JournalViewController.swift in Sources */,
 				E74317E92048C5C900C665D6 /* PersistenceService.swift in Sources */,
+				E782AEE42060D25A008DCCEB /* MonthlyStorageUnit.swift in Sources */,
 				E74E6870203C9626002EB74E /* SettingsTableViewController.swift in Sources */,
+				E78E958B2058907800E019EF /* LastSevenDaysViewController.swift in Sources */,
 				E74318422049FBCB00C665D6 /* Constants.swift in Sources */,
 				E7C6245F204B2BDC0019466D /* CellTappedViewController.swift in Sources */,
-				E7569E0B205700FF00D3D90E /* FirstGraphViewController.swift in Sources */,
+				E7569E0B205700FF00D3D90E /* LastSixMonthsViewController.swift in Sources */,
 				E74317D32048C38F00C665D6 /* Happy.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
