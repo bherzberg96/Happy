@@ -43,7 +43,7 @@ class OverviewViewController: UIViewController {
         yearFormatter.dateFormat = "yyyy"
         let year = yearFormatter.string(from: formatter.date(from: Constants.fakeDates[limit-1])!)
         
-        let previousMonths = getPreviousMonths(numberOfMonths: 4, month: month, year: year)
+        let previousMonths = getPreviousMonths(numberOfMonths: Constants.previousMonthsCount, month: month, year: year)
         
         while i < limit {
             

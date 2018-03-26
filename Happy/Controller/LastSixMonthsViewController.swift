@@ -16,12 +16,12 @@ class LastSixMonthsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let lastFourMonths = getPreviousMonths() //replace with "Date()" after done creating fake data
+        let previousMonths = getPreviousMonths() //replace with "Date()" after done creating fake data
         
         let fetchRequest: NSFetchRequest<Category> = Category.fetchRequest()
         
         do {
-            let formato:BarChartFormatter = BarChartFormatter(previousMonths: lastFourMonths)
+            let formato:BarChartFormatter = BarChartFormatter(previousMonths: previousMonths)
             let xaxis:XAxis = XAxis()
             
             let categories = try PersistenceService.context.fetch(fetchRequest)
@@ -33,9 +33,9 @@ class LastSixMonthsViewController: UIViewController {
                 var vals = getAveragesForCategory(cat: cat!)
                 var yVals : [ChartDataEntry] = [ChartDataEntry]()
                 
-                for i in 0...3 {
-                    if (vals[i] > 0) {
-                        yVals.append(ChartDataEntry(x: Double(i), y: vals[i]))
+                for i in 1...Constants.previousMonthsCount {
+                    if (vals[i-1] > 0) {
+                        yVals.append(ChartDataEntry(x: Double(i-1), y: vals[i-1]))
                         //                        formato.stringForValue(Double(i), axis: xaxis)
                     }
                 }
@@ -63,7 +63,7 @@ class LastSixMonthsViewController: UIViewController {
             lineChartView.xAxis.valueFormatter = xaxis.valueFormatter
             lineChartView.chartDescription?.text = ""
             lineChartView.doubleTapToZoomEnabled = false
-            lineChartView.xAxis.setLabelCount(4, force: true)
+            lineChartView.xAxis.setLabelCount(Constants.previousMonthsCount, force: true)
             //            lineChartView.leftAxis.axisMinimum = max(0.0, lineChartView.data!.yMin - 1.0)
             //            lineChartView.leftAxis.axisMaximum = min(10.0, lineChartView.data!.yMax + 1.0)
             lineChartView.leftAxis.axisMinimum = 1
@@ -76,7 +76,7 @@ class LastSixMonthsViewController: UIViewController {
     func getAveragesForCategory(cat: Category) -> [Double] {
         var avgArray = [Double]()
         
-        for i in 1...4 {
+        for i in 1...Constants.previousMonthsCount {
             var place = ""
             switch i {
             case 1:
@@ -94,7 +94,10 @@ class LastSixMonthsViewController: UIViewController {
             let sum = cat.value(forKey: "\(place)MonthSum") as! Double
             let count = cat.value(forKey: "\(place)MonthCount") as! Double
             
-            let avg = sum/count
+            var avg = 0.0
+            if (count > 0.0) {
+                avg = sum/count
+            }
             avgArray.append(avg)
         }
         
@@ -102,15 +105,14 @@ class LastSixMonthsViewController: UIViewController {
     }
     
     func getPreviousMonths() -> [Int] {
-        // Get last six months
-//        let calendar = Calendar.current
-//        var dateComponents: DateComponents? = calendar.dateComponents([.hour, .minute, .second], from: Date())
-//        dateComponents?.year = 2020
-//        dateComponents?.month = 11
-//        dateComponents?.day = 28
+        let calendar = Calendar.current
+        var dateComponents: DateComponents? = calendar.dateComponents([.hour, .minute, .second], from: Date())
+        dateComponents?.year = 2020
+        dateComponents?.month = 11
+        dateComponents?.day = 28
         
-//        let now: Date = calendar.date(from: dateComponents!)!
-        let now = Date()
+        let now: Date = calendar.date(from: dateComponents!)!
+//        let now = Date()
         
         let monthFormatter = DateFormatter()
         monthFormatter.dateFormat = "MM"
@@ -118,7 +120,7 @@ class LastSixMonthsViewController: UIViewController {
         
         var array = [Int]()
         
-        for _ in 0...3 {
+        for _ in 1...Constants.previousMonthsCount {
             array.append(month)
             
             if (month > 0) {

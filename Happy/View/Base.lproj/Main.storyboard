@@ -44,9 +44,9 @@
                                 </items>
                             </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iOX-Qn-5a5">
-                                <rect key="frame" x="84" y="106" width="206" height="30"/>
+                                <rect key="frame" x="74.5" y="106" width="225" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="Last Six Months"/>
+                                <state key="normal" title="Last Four Months"/>
                                 <connections>
                                     <segue destination="D9l-Qo-jpq" kind="show" id="xos-2y-y7L"/>
                                 </connections>
@@ -72,7 +72,7 @@
                         <constraints>
                             <constraint firstItem="aqk-aG-Wzd" firstAttribute="top" secondItem="iOX-Qn-5a5" secondAttribute="bottom" constant="25" id="3iR-EK-z56"/>
                             <constraint firstItem="aBd-fc-shK" firstAttribute="top" secondItem="aqk-aG-Wzd" secondAttribute="bottom" constant="25" id="6Kk-Q1-qg8"/>
-                            <constraint firstItem="iOX-Qn-5a5" firstAttribute="top" secondItem="Qov-0F-hkY" secondAttribute="bottom" constant="40" id="aoY-Qb-pAe"/>
+                            <constraint firstItem="iOX-Qn-5a5" firstAttribute="top" secondItem="Qov-0F-hkY" secondAttribute="bottom" constant="62.5" id="aoY-Qb-pAe"/>
                             <constraint firstItem="iOX-Qn-5a5" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="knq-3M-YFs"/>
                             <constraint firstItem="aqk-aG-Wzd" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="sGL-bg-trs"/>
                             <constraint firstItem="aBd-fc-shK" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="wXE-nC-bkl"/>
