@@ -40,10 +40,6 @@ class LastSixMonthsViewController: UIViewController {
                     }
                 }
                 
-                let temp = categories.first(where: {$0.name == "mood"})!
-                let novAvg = (temp.value(forKey: "firstMonthSum") as! Double)/(temp.value(forKey: "firstMonthCount") as! Double)
-                let augAvg = (temp.value(forKey: "fourthMonthSum") as! Double)/(temp.value(forKey: "fourthMonthCount") as! Double)
-                
                 let color = Constants.categoryColors[category]!
                 let set: LineChartDataSet = LineChartDataSet(values: yVals, label: category.capitalized)
                 set.axisDependency = .left // Line will correlate with left axis values
@@ -78,6 +74,7 @@ class LastSixMonthsViewController: UIViewController {
     }
     
     func getAveragesForCategory(cat: Category) -> [Double] {
+        let nameOfCat = cat.name!
         var avgArray = [Double]()
         
         for i in 1...Constants.previousMonthsCount {
@@ -109,14 +106,14 @@ class LastSixMonthsViewController: UIViewController {
     }
     
     func getPreviousMonths() -> [Int] {
-        let calendar = Calendar.current
-        var dateComponents: DateComponents? = calendar.dateComponents([.hour, .minute, .second], from: Date())
-        dateComponents?.year = 2020
-        dateComponents?.month = 11
-        dateComponents?.day = 28
+//        let calendar = Calendar.current
+//        var dateComponents: DateComponents? = calendar.dateComponents([.hour, .minute, .second], from: Date())
+//        dateComponents?.year = 2020
+//        dateComponents?.month = 11
+//        dateComponents?.day = 28
         
-        let now: Date = calendar.date(from: dateComponents!)!
-//        let now = Date()
+//        let now: Date = calendar.date(from: dateComponents!)!
+        let now = Date()
         
         let monthFormatter = DateFormatter()
         monthFormatter.dateFormat = "MM"

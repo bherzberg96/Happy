@@ -15,8 +15,12 @@ class NewDayViewController : UIViewController {
     // All
     var date = Date()
     var categories = [String : Int]()
-    
+    var dateFormatter = DateFormatter()
+
     override func viewDidLoad() {
+        dateFormatter.dateFormat = "yyyy/MM/dd"
+        dateFormatter.timeZone = TimeZone.current
+        
         super.viewDidLoad()
         
         if (self.restorationIdentifier == "datePicker") {
@@ -48,9 +52,6 @@ class NewDayViewController : UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
         let date = datePicker.date
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy/MM/dd"
-        dateFormatter.timeZone = TimeZone.current
         let localDate = dateFormatter.date(from: dateFormatter.string(from: date))
         
         if (entryForDateAlreadyExists(date: localDate!)) {
@@ -191,6 +192,106 @@ class NewDayViewController : UIViewController {
         }
         print("Notes: \(coreDataEntry.notes)")
         
+        //////////////
+        
+        let categoryFetchRequest: NSFetchRequest<Category> = Category.fetchRequest()
+        
+        let monthFormatter = DateFormatter()
+        monthFormatter.dateFormat = "MM"
+        let month = monthFormatter.string(from: Date())
+        
+        let yearFormatter = DateFormatter()
+        yearFormatter.dateFormat = "yyyy"
+        let year = yearFormatter.string(from: Date())
+        
+        let previousMonths = getPreviousMonths(numberOfMonths: Constants.previousMonthsCount, month: month, year: year)
+        
+        do {
+            let coreDataCategories = try PersistenceService.context.fetch(categoryFetchRequest)
+            let cat = coreDataCategories.first(where: {$0.name == category})
+            
+            let yearAndMonthFormatter = DateFormatter()
+            yearAndMonthFormatter.dateFormat = "yyyy/MM"
+            let yearAndMonth = yearAndMonthFormatter.string(from: date)
+            
+            for category in Constants.allCategories {
+                let coreDataCategory = coreDataCategories.first(where: {$0.name == category})!
+                for previousMonth in previousMonths {
+                    if (previousMonth == yearAndMonth) {
+                        let val = getVal(previousMonths: previousMonths, yearAndMonth: yearAndMonth)
+                        if let nonNilVal = val {
+                            print("Val: \(nonNilVal)")
+                            print("Sum: \(coreDataCategory.value(forKey: "\(nonNilVal)Sum"))")
+//                            print("\(coreDataEntry.value(forKey: category) as! Int)")
+                            
+                            if let coreDataEntryVal = coreDataEntry.value(forKey: category) {
+                                // sum
+                                coreDataCategory.setValue((coreDataCategory.value(forKey: "\(nonNilVal)Sum") as! Int) + (coreDataEntryVal as! Int), forKey: "\(nonNilVal)Sum")
+                                
+                                //count
+                                coreDataCategory.setValue((coreDataCategory.value(forKey: "\(nonNilVal)Count") as! Int) + 1, forKey: "\(nonNilVal)Count")
+                               
+                               //totals
+                                coreDataCategory.setValue((coreDataCategory.value(forKey: "sum") as! Int) + (coreDataEntry.value(forKey: category) as! Int), forKey: "sum")
+                                coreDataCategory.setValue(coreDataCategory.value(forKey: "count") as! Int + 1, forKey: "count")
+                            }
+                        }
+                    }
+                }
+                
+            }
+            
+            PersistenceService.saveContext()
+        } catch { }
+        
+        //////////
+        
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    func getVal(previousMonths: [String], yearAndMonth: String) -> String? {
+        var i = 0
+        for previousMonth in previousMonths {
+            if (previousMonth == yearAndMonth) {
+                switch i+1 {
+                case 1:
+                    return "firstMonth"
+                case 2:
+                    return "secondMonth"
+                case 3:
+                    return "thirdMonth"
+                case 4:
+                    return "fourthMonth"
+                default:
+                    return nil
+                }
+            }
+            i += 1
+        }
+        
+        return nil
+    }
+    
+    func getPreviousMonths(numberOfMonths: Int, month: String, year: String) -> [String] {
+        //        let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+        let months = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]
+        var year = Int(year)!
+        var updatedArray = [String]()
+        
+        var whileLoopCount = 0
+        var arrayIndex = Int(month)!-1
+        while whileLoopCount < numberOfMonths {
+            updatedArray.append("\(year)/\(months[arrayIndex])")
+            
+            if (arrayIndex > 0) {
+                arrayIndex -= 1
+            } else {
+                arrayIndex = months.count-1
+                year -= 1
+            }
+            whileLoopCount += 1
+        }
+        
+        return updatedArray
     }
 }

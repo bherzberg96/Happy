@@ -15,9 +15,9 @@ class OverviewViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        deleteOldData()
-        createCategoryCoreData()
-        populateWithFakeData(limit: Constants.fakeDates.count)
+//        deleteOldData()
+//        createCategoryCoreData()
+//        populateWithFakeData(limit: Constants.fakeDates.count)
     }
     
     func createCategoryCoreData() {
@@ -65,9 +65,7 @@ class OverviewViewController: UIViewController {
                 let yearAndMonth = yearAndMonthFormatter.string(from: date!)
                 
                 for category in Constants.allCategories {
-                    for coreDataCategory in coreDataCategories {
-                        var x = "\(coreDataCategory.value(forKey: "name")!)"
-                        if ("\(coreDataCategory.value(forKey: "name")!)" == category) {
+                    let coreDataCategory = coreDataCategories.first(where: {$0.name == category})!
                             for previousMonth in previousMonths {
                                 if (previousMonth == yearAndMonth) {
                                     let val = getVal(previousMonths: previousMonths, yearAndMonth: yearAndMonth)
@@ -86,8 +84,7 @@ class OverviewViewController: UIViewController {
                             
                             coreDataCategory.setValue((coreDataCategory.value(forKey: "sum") as! Int) + (coreDataEntry.value(forKey: category) as! Int), forKey: "sum")
                             coreDataCategory.setValue(coreDataCategory.value(forKey: "count") as! Int + 1, forKey: "count")
-                        }
-                    }
+                        
                 }
                 
                 PersistenceService.saveContext()
