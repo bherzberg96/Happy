@@ -21,10 +21,36 @@ class LastSixMonthsViewController: UIViewController {
         let fetchRequest: NSFetchRequest<Category> = Category.fetchRequest()
         
         do {
+            let categories = try PersistenceService.context.fetch(fetchRequest)
+            
+            //check if data for each month exists
+            var firstMonthExists = false
+            var secondMonthExists = false
+            var thirdMonthExists = false
+            var fourthMonthExists = false
+            for category in Constants.allCategories {
+                let cat = categories.first(where: {$0.name == category})!
+                if (cat.value(forKey: "firstMonthCount") as! Int > 0) {
+                    firstMonthExists = true
+                }
+                if (cat.value(forKey: "secondMonthCount") as! Int > 0) {
+                    secondMonthExists = true
+                }
+                if (cat.value(forKey: "thirdMonthCount") as! Int > 0) {
+                    thirdMonthExists = true
+                }
+                if (cat.value(forKey: "fourthMonthCount") as! Int > 0) {
+                    fourthMonthExists = true
+                }
+            }
+            
+            lineChartView.noDataText = "You must have four months of data to display this graph."
+            
+            if (firstMonthExists && secondMonthExists && thirdMonthExists && fourthMonthExists) {
+            
             let formato:BarChartFormatter = BarChartFormatter(previousMonths: previousMonths)
             let xaxis : XAxis = XAxis()
             
-            let categories = try PersistenceService.context.fetch(fetchRequest)
             var dataSets : [LineChartDataSet] = [LineChartDataSet]()
             
             for category in Constants.allCategories {
@@ -70,6 +96,7 @@ class LastSixMonthsViewController: UIViewController {
             lineChartView.leftAxis.axisMaximum = 10
             lineChartView.leftAxis.labelCount = Int(lineChartView.leftAxis.axisMaximum - lineChartView.leftAxis.axisMinimum)
             lineChartView.rightAxis.enabled = false
+        }
         } catch { }
     }
     

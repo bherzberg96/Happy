@@ -15,8 +15,8 @@ class OverviewViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        deleteOldData()
-//        createCategoryCoreData()
+        deleteOldData()
+        createCategoryCoreData()
 //        populateWithFakeData(limit: Constants.fakeDates.count)
     }
     
