@@ -181,9 +181,9 @@ class NewDayViewController : UIViewController {
                 coreDataEntry.setValue(value, forKey: key)
             }
         }
-        if (textField.text != "") {
-            coreDataEntry.setValue(textField.text, forKey: "notes")
-        }
+        let val = textField.text
+        coreDataEntry.setValue(textField.text, forKey: "notes")
+        
         PersistenceService.saveContext()
         
         print("Date: \(coreDataEntry.date)")
