@@ -16,16 +16,7 @@ class OverviewViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 //        deleteOldData()
-        createCategoryCoreData()
 //        populateWithFakeData(limit: Constants.fakeDates.count)
-    }
-    
-    func createCategoryCoreData() {
-        for category in Constants.allCategories {
-            let newCoreDataCategory = Category(context: PersistenceService.context)
-            newCoreDataCategory.setValue(category, forKey: "name")
-            PersistenceService.saveContext()
-        }
     }
     
     func populateWithFakeData(limit : Int) {

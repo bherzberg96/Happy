@@ -44,7 +44,7 @@ class LastSixMonthsViewController: UIViewController {
                 }
             }
             
-            lineChartView.noDataText = "You must data for the past four months to display this graph."
+            lineChartView.noDataText = "You must have data for the past four months to display this graph."
             
             if (firstMonthExists && secondMonthExists && thirdMonthExists && fourthMonthExists) {
                 

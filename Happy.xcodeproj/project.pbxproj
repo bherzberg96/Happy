@@ -25,6 +25,7 @@
 		E7965DC72038D2F20056FC8E /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7965DC62038D2F20056FC8E /* OverviewViewController.swift */; };
 		E7965DC92038D33E0056FC8E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7965DC82038D33E0056FC8E /* SettingsViewController.swift */; };
 		E7C6245F204B2BDC0019466D /* CellTappedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C6245E204B2BDC0019466D /* CellTappedViewController.swift */; };
+		E7E6A61A207F0CCC00023878 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E6A619207F0CCC00023878 /* OnboardingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		E7965DC62038D2F20056FC8E /* OverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
 		E7965DC82038D33E0056FC8E /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		E7C6245E204B2BDC0019466D /* CellTappedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CellTappedViewController.swift; path = Happy/Controller/CellTappedViewController.swift; sourceTree = SOURCE_ROOT; };
+		E7E6A619207F0CCC00023878 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 				E7965DC62038D2F20056FC8E /* OverviewViewController.swift */,
 				E7965DB42038CF260056FC8E /* JournalViewController.swift */,
 				E7965DC82038D33E0056FC8E /* SettingsViewController.swift */,
+				E7E6A619207F0CCC00023878 /* OnboardingViewController.swift */,
 				E7965DB22038CF260056FC8E /* AppDelegate.swift */,
 				E74317E82048C5C900C665D6 /* PersistenceService.swift */,
 			);
@@ -284,6 +287,7 @@
 				E78E958D2058909700E019EF /* AveragesViewController.swift in Sources */,
 				E7569E092055BCDB00D3D90E /* BarChartFormatter.swift in Sources */,
 				E7965DB52038CF260056FC8E /* JournalViewController.swift in Sources */,
+				E7E6A61A207F0CCC00023878 /* OnboardingViewController.swift in Sources */,
 				E74317E92048C5C900C665D6 /* PersistenceService.swift in Sources */,
 				E74E6870203C9626002EB74E /* SettingsTableViewController.swift in Sources */,
 				E78E958B2058907800E019EF /* LastSevenDaysViewController.swift in Sources */,

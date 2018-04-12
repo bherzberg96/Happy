@@ -36,25 +36,27 @@ class LastSevenDaysViewController: UIViewController {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy/MM/dd"
             
-            for i in 1...7 {                
+            for i in 0...6 {
                 let date = Calendar.current.date(byAdding: .day, value: -i, to: Date())!
-                for entry in entries {
-                    let entryDate = entry.date
-                    if (date == entryDate) {
-                        lastSevenDateEntries.append(entry)
-                    }
-                }
-                
-//                let dateEntry = entries.first(where: {dateFormatter.string(from: $0.date!) == dateFormatter.string(from: date)})
-//                if (dateEntry != nil) {
-//                    lastSevenDateEntries.append(dateEntry!) // need to remove ! later; if no entry was logged for a given date, it will throw an exception
+//                for entry in entries {
+//                    let entryDate = entry.date
+//                    if (date == entryDate) {
+//                        lastSevenDateEntries.append(entry)
+//                    }
 //                }
+            
+                let dateEntry = entries.first(where: {dateFormatter.string(from: $0.date!) == dateFormatter.string(from: date)})
+                if (dateEntry != nil) {
+                    lastSevenDateEntries.append(dateEntry!)
+                }
             }
             
             lineChartView.noDataText = "You must have data for the past seven days to display this graph."
             
             if (lastSevenDateEntries.count == 7) {
             
+                lastSevenDateEntries.reverse()
+                
             let formato:BarChartFormatter = BarChartFormatter(previousEntries: lastSevenDateEntries)
             let xaxis:XAxis = XAxis()
             
@@ -69,6 +71,8 @@ class LastSevenDaysViewController: UIViewController {
                         vals.append(0)
                     }
                 }
+                
+//                vals.reverse()
                 
                 var yVals : [ChartDataEntry] = [ChartDataEntry]()
                 

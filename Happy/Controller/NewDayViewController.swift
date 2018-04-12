@@ -55,7 +55,7 @@ class NewDayViewController : UIViewController {
         let localDate = dateFormatter.date(from: dateFormatter.string(from: date))
         
         if (entryForDateAlreadyExists(date: localDate!)) {
-            let alert = UIAlertController(title: "Entry already exists", message: "You have already logged an entry for this day. To edit this day, edit it in the Journal tab.", preferredStyle: UIAlertControllerStyle.alert)
+            let alert = UIAlertController(title: "Entry already exists", message: "You have already logged an entry for this day.", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         } else {
