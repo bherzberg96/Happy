@@ -16,13 +16,13 @@ class LastSevenDaysViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let calendar = Calendar.current
-        var dateComponents: DateComponents? = calendar.dateComponents([.hour, .minute, .second], from: Date())
-        dateComponents?.year = 2020
-        dateComponents?.month = 11
-        dateComponents?.day = 28
+//        let calendar = Calendar.current
+//        var dateComponents: DateComponents? = calendar.dateComponents([.hour, .minute, .second], from: Date())
+//        dateComponents?.year = 2020
+//        dateComponents?.month = 11
+//        dateComponents?.day = 28
         
-        let now: Date = calendar.date(from: dateComponents!)!
+//        let now: Date = calendar.date(from: dateComponents!)!
         
         let fetchRequest: NSFetchRequest<Entry> = Entry.fetchRequest()
         let sort = NSSortDescriptor(key: #keyPath(Entry.date), ascending: false)
@@ -36,11 +36,24 @@ class LastSevenDaysViewController: UIViewController {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy/MM/dd"
             
-            for i in 1...7 {
-                let date = Calendar.current.date(byAdding: .day, value: -i, to: now)!
-                let dateEntry = entries.first(where: {dateFormatter.string(from: $0.date!) == dateFormatter.string(from: date)})
-                lastSevenDateEntries.append(dateEntry!) // need to remove ! later; if no entry was logged for a given date, it will throw an exception
+            for i in 1...7 {                
+                let date = Calendar.current.date(byAdding: .day, value: -i, to: Date())!
+                for entry in entries {
+                    let entryDate = entry.date
+                    if (date == entryDate) {
+                        lastSevenDateEntries.append(entry)
+                    }
+                }
+                
+//                let dateEntry = entries.first(where: {dateFormatter.string(from: $0.date!) == dateFormatter.string(from: date)})
+//                if (dateEntry != nil) {
+//                    lastSevenDateEntries.append(dateEntry!) // need to remove ! later; if no entry was logged for a given date, it will throw an exception
+//                }
             }
+            
+            lineChartView.noDataText = "You must have data for the past seven days to display this graph."
+            
+            if (lastSevenDateEntries.count == 7) {
             
             let formato:BarChartFormatter = BarChartFormatter(previousEntries: lastSevenDateEntries)
             let xaxis:XAxis = XAxis()
@@ -50,7 +63,11 @@ class LastSevenDaysViewController: UIViewController {
             for category in Constants.allCategories {
                 var vals = [Double]()
                 for entry in lastSevenDateEntries {
-                    vals.append(entry.value(forKey: category) as! Double)
+                    if let entryVal = entry.value(forKey: category) {
+                        vals.append(entryVal as! Double)
+                    } else {
+                        vals.append(0)
+                    }
                 }
                 
                 var yVals : [ChartDataEntry] = [ChartDataEntry]()
@@ -92,7 +109,8 @@ class LastSevenDaysViewController: UIViewController {
             lineChartView.leftAxis.axisMaximum = 10
             lineChartView.leftAxis.labelCount = Int(lineChartView.leftAxis.axisMaximum - lineChartView.leftAxis.axisMinimum)
             lineChartView.rightAxis.enabled = false
-        } catch { }
+            }
+            } catch { }
     }
     
     func getAveragesForCategory(cat: Category) -> [Double] {
@@ -121,34 +139,5 @@ class LastSevenDaysViewController: UIViewController {
         }
         
         return avgArray
-    }
-    
-    func getPreviousMonths() -> [Int] {
-        // Get last six months
-        let calendar = Calendar.current
-        var dateComponents: DateComponents? = calendar.dateComponents([.hour, .minute, .second], from: Date())
-        dateComponents?.year = 2020
-        dateComponents?.month = 11
-        dateComponents?.day = 28
-        
-        let now: Date = calendar.date(from: dateComponents!)!
-        
-        let monthFormatter = DateFormatter()
-        monthFormatter.dateFormat = "MM"
-        var month = Int(monthFormatter.string(from: now))!
-        
-        var array = [Int]()
-        
-        for _ in 0...3 {
-            array.append(month)
-            
-            if (month > 0) {
-                month -= 1
-            } else {
-                month = 12
-            }
-        }
-        
-        return array
     }
 }

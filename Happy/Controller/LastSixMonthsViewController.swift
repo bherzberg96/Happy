@@ -44,59 +44,59 @@ class LastSixMonthsViewController: UIViewController {
                 }
             }
             
-            lineChartView.noDataText = "You must have four months of data to display this graph."
+            lineChartView.noDataText = "You must data for the past four months to display this graph."
             
             if (firstMonthExists && secondMonthExists && thirdMonthExists && fourthMonthExists) {
-            
-            let formato:BarChartFormatter = BarChartFormatter(previousMonths: previousMonths)
-            let xaxis : XAxis = XAxis()
-            
-            var dataSets : [LineChartDataSet] = [LineChartDataSet]()
-            
-            for category in Constants.allCategories {
-                let cat = categories.first(where: {$0.name == category})
                 
-                var vals = getAveragesForCategory(cat: cat!)
-                var yVals : [ChartDataEntry] = [ChartDataEntry]()
+                let formato:BarChartFormatter = BarChartFormatter(previousMonths: previousMonths)
+                let xaxis : XAxis = XAxis()
                 
-                for i in 1...Constants.previousMonthsCount {
-                    if (vals[i-1] > 0) {
-                        yVals.append(ChartDataEntry(x: Double(i-1), y: vals[i-1]))
-                        //                        formato.stringForValue(Double(i), axis: xaxis)
+                var dataSets : [LineChartDataSet] = [LineChartDataSet]()
+                
+                for category in Constants.allCategories {
+                    let cat = categories.first(where: {$0.name == category})
+                    
+                    var vals = getAveragesForCategory(cat: cat!)
+                    var yVals : [ChartDataEntry] = [ChartDataEntry]()
+                    
+                    for i in 1...Constants.previousMonthsCount {
+                        if (vals[i-1] > 0) {
+                            yVals.append(ChartDataEntry(x: Double(i-1), y: vals[i-1]))
+                            //                        formato.stringForValue(Double(i), axis: xaxis)
+                        }
                     }
+                    
+                    let color = Constants.categoryColors[category]!
+                    let set: LineChartDataSet = LineChartDataSet(values: yVals, label: category.capitalized)
+                    set.axisDependency = .left // Line will correlate with left axis values
+                    set.setColor(color.withAlphaComponent(0.5))
+                    set.setCircleColor(color)
+                    set.lineWidth = 2.0
+                    set.circleRadius = 6.0
+                    set.fillAlpha = 65 / 255.0
+                    set.fillColor = color
+                    set.drawCircleHoleEnabled = true
+                    
+                    dataSets.append(set)
                 }
                 
-                let color = Constants.categoryColors[category]!
-                let set: LineChartDataSet = LineChartDataSet(values: yVals, label: category.capitalized)
-                set.axisDependency = .left // Line will correlate with left axis values
-                set.setColor(color.withAlphaComponent(0.5))
-                set.setCircleColor(color)
-                set.lineWidth = 2.0
-                set.circleRadius = 6.0
-                set.fillAlpha = 65 / 255.0
-                set.fillColor = color
-                set.drawCircleHoleEnabled = true
+                xaxis.valueFormatter = formato
                 
-                dataSets.append(set)
+                let data: LineChartData = LineChartData(dataSets: dataSets)
+                data.setDrawValues(false)
+                
+                lineChartView.data = data
+                lineChartView.xAxis.valueFormatter = xaxis.valueFormatter
+                lineChartView.chartDescription?.text = ""
+                lineChartView.doubleTapToZoomEnabled = false
+                lineChartView.xAxis.setLabelCount(Constants.previousMonthsCount, force: true)
+                //            lineChartView.leftAxis.axisMinimum = max(0.0, lineChartView.data!.yMin - 1.0)
+                //            lineChartView.leftAxis.axisMaximum = min(10.0, lineChartView.data!.yMax + 1.0)
+                lineChartView.leftAxis.axisMinimum = 1
+                lineChartView.leftAxis.axisMaximum = 10
+                lineChartView.leftAxis.labelCount = Int(lineChartView.leftAxis.axisMaximum - lineChartView.leftAxis.axisMinimum)
+                lineChartView.rightAxis.enabled = false
             }
-            
-            xaxis.valueFormatter = formato
-            
-            let data: LineChartData = LineChartData(dataSets: dataSets)
-            data.setDrawValues(false)
-            
-            lineChartView.data = data
-            lineChartView.xAxis.valueFormatter = xaxis.valueFormatter
-            lineChartView.chartDescription?.text = ""
-            lineChartView.doubleTapToZoomEnabled = false
-            lineChartView.xAxis.setLabelCount(Constants.previousMonthsCount, force: true)
-            //            lineChartView.leftAxis.axisMinimum = max(0.0, lineChartView.data!.yMin - 1.0)
-            //            lineChartView.leftAxis.axisMaximum = min(10.0, lineChartView.data!.yMax + 1.0)
-            lineChartView.leftAxis.axisMinimum = 1
-            lineChartView.leftAxis.axisMaximum = 10
-            lineChartView.leftAxis.labelCount = Int(lineChartView.leftAxis.axisMaximum - lineChartView.leftAxis.axisMinimum)
-            lineChartView.rightAxis.enabled = false
-        }
         } catch { }
     }
     
@@ -133,13 +133,13 @@ class LastSixMonthsViewController: UIViewController {
     }
     
     func getPreviousMonths() -> [Int] {
-//        let calendar = Calendar.current
-//        var dateComponents: DateComponents? = calendar.dateComponents([.hour, .minute, .second], from: Date())
-//        dateComponents?.year = 2020
-//        dateComponents?.month = 11
-//        dateComponents?.day = 28
+        //        let calendar = Calendar.current
+        //        var dateComponents: DateComponents? = calendar.dateComponents([.hour, .minute, .second], from: Date())
+        //        dateComponents?.year = 2020
+        //        dateComponents?.month = 11
+        //        dateComponents?.day = 28
         
-//        let now: Date = calendar.date(from: dateComponents!)!
+        //        let now: Date = calendar.date(from: dateComponents!)!
         let now = Date()
         
         let monthFormatter = DateFormatter()
