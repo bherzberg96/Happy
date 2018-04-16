@@ -93,7 +93,7 @@ class CellTappedViewController: UIViewController, UITableViewDelegate, UITableVi
             yearFormatter.dateFormat = "yyyy"
             let year = yearFormatter.string(from: Date())
             
-            var previousMonths = getPreviousMonths(numberOfMonths: 4, month: month, year: year)
+            let previousMonths = getPreviousMonths(numberOfMonths: 4, month: month, year: year)
             
             let coreDataCategories = try PersistenceService.context.fetch(fetchRequest)
             for category in Constants.allCategories {

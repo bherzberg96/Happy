@@ -55,6 +55,7 @@ class AveragesViewController: UIViewController {
             barChartView.chartDescription?.text = ""
             barChartView.doubleTapToZoomEnabled = false
             barChartView.xAxis.setLabelCount(7, force: true)
+            barChartView.xAxis.drawLabelsEnabled = false
             //            lineChartView.leftAxis.axisMinimum = max(0.0, lineChartView.data!.yMin - 1.0)
             //            lineChartView.leftAxis.axisMaximum = min(10.0, lineChartView.data!.yMax + 1.0)
             barChartView.leftAxis.axisMinimum = 1

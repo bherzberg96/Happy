@@ -360,10 +360,10 @@
             </objects>
             <point key="canvasLocation" x="2109.375" y="1640"/>
         </scene>
-        <!--Last Six Months View Controller-->
+        <!--Last Four Months View Controller-->
         <scene sceneID="5TI-nN-iye">
             <objects>
-                <viewController id="D9l-Qo-jpq" customClass="LastSixMonthsViewController" customModule="Happy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="D9l-Qo-jpq" customClass="LastFourMonthsViewController" customModule="Happy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wjs-Ag-cPk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

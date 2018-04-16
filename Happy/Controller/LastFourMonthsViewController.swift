@@ -1,5 +1,5 @@
 //
-//  LastSixMonthsViewController.swift
+//  LastFourMonthsViewController.swift
 //  Happy
 //
 //  Created by Ben Herzberg on 3/11/18.
@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 import Charts
 
-class LastSixMonthsViewController: UIViewController {
+class LastFourMonthsViewController: UIViewController {
     @IBOutlet weak var lineChartView: LineChartView!
     
     override func viewDidLoad() {
@@ -90,9 +90,7 @@ class LastSixMonthsViewController: UIViewController {
                 lineChartView.chartDescription?.text = ""
                 lineChartView.doubleTapToZoomEnabled = false
                 lineChartView.xAxis.setLabelCount(Constants.previousMonthsCount, force: true)
-                //            lineChartView.leftAxis.axisMinimum = max(0.0, lineChartView.data!.yMin - 1.0)
-                //            lineChartView.leftAxis.axisMaximum = min(10.0, lineChartView.data!.yMax + 1.0)
-                lineChartView.leftAxis.axisMinimum = 1
+                lineChartView.leftAxis.axisMinimum = 0
                 lineChartView.leftAxis.axisMaximum = 10
                 lineChartView.leftAxis.labelCount = Int(lineChartView.leftAxis.axisMaximum - lineChartView.leftAxis.axisMinimum)
                 lineChartView.rightAxis.enabled = false
@@ -133,13 +131,6 @@ class LastSixMonthsViewController: UIViewController {
     }
     
     func getPreviousMonths() -> [Int] {
-        //        let calendar = Calendar.current
-        //        var dateComponents: DateComponents? = calendar.dateComponents([.hour, .minute, .second], from: Date())
-        //        dateComponents?.year = 2020
-        //        dateComponents?.month = 11
-        //        dateComponents?.day = 28
-        
-        //        let now: Date = calendar.date(from: dateComponents!)!
         let now = Date()
         
         let monthFormatter = DateFormatter()

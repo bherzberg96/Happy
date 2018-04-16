@@ -107,9 +107,7 @@ class LastSevenDaysViewController: UIViewController {
             lineChartView.chartDescription?.text = ""
             lineChartView.doubleTapToZoomEnabled = false
             lineChartView.xAxis.setLabelCount(7, force: true)
-            //            lineChartView.leftAxis.axisMinimum = max(0.0, lineChartView.data!.yMin - 1.0)
-            //            lineChartView.leftAxis.axisMaximum = min(10.0, lineChartView.data!.yMax + 1.0)
-            lineChartView.leftAxis.axisMinimum = 1
+            lineChartView.leftAxis.axisMinimum = 0
             lineChartView.leftAxis.axisMaximum = 10
             lineChartView.leftAxis.labelCount = Int(lineChartView.leftAxis.axisMaximum - lineChartView.leftAxis.axisMinimum)
             lineChartView.rightAxis.enabled = false
