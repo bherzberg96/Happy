@@ -57,7 +57,7 @@ class LastSevenDaysViewController: UIViewController {
             
                 lastSevenDateEntries.reverse()
                 
-            let formato:BarChartFormatter = BarChartFormatter(previousEntries: lastSevenDateEntries)
+            let formato:ChartFormatter = ChartFormatter(previousEntries: lastSevenDateEntries)
             let xaxis:XAxis = XAxis()
             
             var dataSets : [LineChartDataSet] = [LineChartDataSet]()

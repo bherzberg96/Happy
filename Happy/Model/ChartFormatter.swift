@@ -2,8 +2,8 @@ import UIKit
 import Foundation
 import Charts
 
-@objc(BarChartFormatter)
-public class BarChartFormatter: NSObject, IAxisValueFormatter{
+@objc(ChartFormatter)
+public class ChartFormatter: NSObject, IAxisValueFormatter{
     
     var vals = [String]()
     

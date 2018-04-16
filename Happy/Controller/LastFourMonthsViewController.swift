@@ -48,7 +48,7 @@ class LastFourMonthsViewController: UIViewController {
             
             if (firstMonthExists && secondMonthExists && thirdMonthExists && fourthMonthExists) {
                 
-                let formato:BarChartFormatter = BarChartFormatter(previousMonths: previousMonths)
+                let formato:ChartFormatter = ChartFormatter(previousMonths: previousMonths)
                 let xaxis : XAxis = XAxis()
                 
                 var dataSets : [LineChartDataSet] = [LineChartDataSet]()

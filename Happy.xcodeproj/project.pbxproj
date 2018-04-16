@@ -12,7 +12,7 @@
 		E74317E92048C5C900C665D6 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74317E82048C5C900C665D6 /* PersistenceService.swift */; };
 		E74318422049FBCB00C665D6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74318412049FBCB00C665D6 /* Constants.swift */; };
 		E74E6870203C9626002EB74E /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74E686F203C9626002EB74E /* SettingsTableViewController.swift */; };
-		E7569E092055BCDB00D3D90E /* BarChartFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7569E082055BCDB00D3D90E /* BarChartFormatter.swift */; };
+		E7569E092055BCDB00D3D90E /* ChartFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7569E082055BCDB00D3D90E /* ChartFormatter.swift */; };
 		E7569E0B205700FF00D3D90E /* LastFourMonthsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7569E0A205700FF00D3D90E /* LastFourMonthsViewController.swift */; };
 		E78E958B2058907800E019EF /* LastSevenDaysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78E958A2058907800E019EF /* LastSevenDaysViewController.swift */; };
 		E78E958D2058909700E019EF /* AveragesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78E958C2058909700E019EF /* AveragesViewController.swift */; };
@@ -36,7 +36,7 @@
 		E74317E82048C5C900C665D6 /* PersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
 		E74318412049FBCB00C665D6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E74E686F203C9626002EB74E /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
-		E7569E082055BCDB00D3D90E /* BarChartFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartFormatter.swift; sourceTree = "<group>"; };
+		E7569E082055BCDB00D3D90E /* ChartFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartFormatter.swift; sourceTree = "<group>"; };
 		E7569E0A205700FF00D3D90E /* LastFourMonthsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastFourMonthsViewController.swift; sourceTree = "<group>"; };
 		E78E958A2058907800E019EF /* LastSevenDaysViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastSevenDaysViewController.swift; sourceTree = "<group>"; };
 		E78E958C2058909700E019EF /* AveragesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AveragesViewController.swift; sourceTree = "<group>"; };
@@ -118,7 +118,7 @@
 			children = (
 				E74317D12048C38F00C665D6 /* Happy.xcdatamodeld */,
 				E74318412049FBCB00C665D6 /* Constants.swift */,
-				E7569E082055BCDB00D3D90E /* BarChartFormatter.swift */,
+				E7569E082055BCDB00D3D90E /* ChartFormatter.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -285,7 +285,7 @@
 				E7965DB32038CF260056FC8E /* AppDelegate.swift in Sources */,
 				E7965DC92038D33E0056FC8E /* SettingsViewController.swift in Sources */,
 				E78E958D2058909700E019EF /* AveragesViewController.swift in Sources */,
-				E7569E092055BCDB00D3D90E /* BarChartFormatter.swift in Sources */,
+				E7569E092055BCDB00D3D90E /* ChartFormatter.swift in Sources */,
 				E7965DB52038CF260056FC8E /* JournalViewController.swift in Sources */,
 				E7E6A61A207F0CCC00023878 /* OnboardingViewController.swift in Sources */,
 				E74317E92048C5C900C665D6 /* PersistenceService.swift in Sources */,
